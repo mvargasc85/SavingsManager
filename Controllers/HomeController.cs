@@ -31,5 +31,10 @@ namespace SavingsManager.Controllers
         {
             return View();
         }
+
+        public ActionResult NuevoGrupo()
+        {
+            return View();
+        }
     }
 }
