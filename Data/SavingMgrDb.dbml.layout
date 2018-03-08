@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SavingMgrDb">
+  <DataContextMoniker Name="/SavingMgrDbDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bde97783-d110-4174-8e74-b39cfe2155fb" absoluteBounds="3.625, 5.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/Ahorro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a0cf85ef-38ad-4eda-bfaa-3a7e8c484772" absoluteBounds="3.64, 5.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7185e4b-826d-45d6-8a28-aa5e4fb427d4" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c19e2066-0e66-43b6-afb8-bd6fd0532940" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04524c31-69d1-45ca-a58e-70104fd322ae" absoluteBounds="0.5, 2.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/Plan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b6e74e4-8c80-45bb-bec0-36662d0aae5a" absoluteBounds="0.515, 2.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 4.72280110677083); (1.5 : 6.10659912109375); (3.625 : 6.10659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SavingMgrDbDataContext/Plan/Plan_Ahorro" />
+      <nodes>
+        <classShapeMoniker Id="04524c31-69d1-45ca-a58e-70104fd322ae" />
+        <classShapeMoniker Id="bde97783-d110-4174-8e74-b39cfe2155fb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d0923871-e104-49db-8cb2-f26ce2f6a9e3" absoluteBounds="3.5, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/Socio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a49108e7-d049-4c02-bccd-6b55aea550ab" absoluteBounds="3.5149999999999997, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.21875 : 2.4631982421875); (5.21875 : 5.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SavingMgrDbDataContext/Socio/Socio_Ahorro" />
+      <nodes>
+        <classShapeMoniker Id="d0923871-e104-49db-8cb2-f26ce2f6a9e3" />
+        <classShapeMoniker Id="bde97783-d110-4174-8e74-b39cfe2155fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 1.19314697265625); (3.5 : 1.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SavingMgrDbDataContext/Grupo/Grupo_Socio" />
+      <nodes>
+        <classShapeMoniker Id="c7185e4b-826d-45d6-8a28-aa5e4fb427d4" />
+        <classShapeMoniker Id="d0923871-e104-49db-8cb2-f26ce2f6a9e3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="955182e8-3fd1-4749-abab-42ae06156947" absoluteBounds="2.875, 3.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/PlanesSocio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07769153-61e2-4760-964c-cf55c24bdfd9" absoluteBounds="2.8900000000000006, 3.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 3.72199625651042); (2.875 : 3.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SavingMgrDbDataContext/Plan/Plan_PlanesSocio" />
+      <nodes>
+        <classShapeMoniker Id="04524c31-69d1-45ca-a58e-70104fd322ae" />
+        <classShapeMoniker Id="955182e8-3fd1-4749-abab-42ae06156947" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.1875 : 2.4631982421875); (4.1875 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SavingMgrDbDataContext/Socio/Socio_PlanesSocio" />
+      <nodes>
+        <classShapeMoniker Id="d0923871-e104-49db-8cb2-f26ce2f6a9e3" />
+        <classShapeMoniker Id="955182e8-3fd1-4749-abab-42ae06156947" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

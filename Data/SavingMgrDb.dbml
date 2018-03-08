@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SavingsManagerDB" Class="SavingMgrDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-N6P4OH0\SQLEXPRESS;Initial Catalog=SavingsManagerDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SavingsManagerDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ahorro" Member="Ahorro">
+    <Type Name="Ahorro">
+      <Column Name="idpago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdPlan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdSocio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MontoCuota" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Plan_Ahorro" Member="Plan" ThisKey="IdPlan" OtherKey="IdPlan" Type="Plan" IsForeignKey="true" />
+      <Association Name="Socio_Ahorro" Member="Socio" ThisKey="IdSocio" OtherKey="IdSocio" Type="Socio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grupo" Member="Grupo">
+    <Type Name="Grupo">
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Creacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Grupo_Socio" Member="Socio" ThisKey="IdGrupo" OtherKey="IdGrupo" Type="Socio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Plan]" Member="Plan">
+    <Type Name="Plan">
+      <Column Name="IdPlan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Duracion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Periodicidad" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MontoCuota" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicial" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaFinal" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Plan_Ahorro" Member="Ahorro" ThisKey="IdPlan" OtherKey="IdPlan" Type="Ahorro" />
+      <Association Name="Plan_PlanesSocio" Member="PlanesSocio" ThisKey="IdPlan" OtherKey="IdPlan" Type="PlanesSocio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Socio" Member="Socio">
+    <Type Name="Socio">
+      <Column Name="IdSocio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Socio_Ahorro" Member="Ahorro" ThisKey="IdSocio" OtherKey="IdSocio" Type="Ahorro" />
+      <Association Name="Socio_PlanesSocio" Member="PlanesSocio" ThisKey="IdSocio" OtherKey="IdSocio" Type="PlanesSocio" />
+      <Association Name="Grupo_Socio" Member="Grupo" ThisKey="IdGrupo" OtherKey="IdGrupo" Type="Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlanesSocio" Member="PlanesSocio">
+    <Type Name="PlanesSocio">
+      <Column Name="IdPlan" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdSocio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Plan_PlanesSocio" Member="Plan" ThisKey="IdPlan" OtherKey="IdPlan" Type="Plan" IsForeignKey="true" />
+      <Association Name="Socio_PlanesSocio" Member="Socio" ThisKey="IdSocio" OtherKey="IdSocio" Type="Socio" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
