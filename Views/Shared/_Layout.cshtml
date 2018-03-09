@@ -34,54 +34,41 @@
                         Grupos
                         <ul>
                             <li>@Html.ActionLink("Crear Nuevo Grupo", "NuevoGrupo", "Home")</li>
-                            <li><a href="../Maintenance/GetAllCPSP">Ver Grupos</a></li>                           
+                            <li>@Html.ActionLink("Ver Grupos", "VerGrupos", "Home")</li>                    
                         </ul>
                     </li>
                     <li>
                         Asociados
                         <ul>
-                            <li><a href="../Maintenance/GetAllCodPres">Registrar Nuevo Asociado</a></li>
-                            <li><a href="../Maintenance/GetAllCPSP">Ver Asociados</a></li>
+                            <li>@Html.ActionLink("Registrar Nuevo Asociado", "NuevoSocio", "Home")</li>
+                            <li>@Html.ActionLink("Ver Asociados", "VerSocios", "Home")</li> 
                         </ul>
                     </li>
                     <li>
                         Planes
                         <ul>
-                            <li><a href="../Maintenance/GetAllCodPres">Crear Nuevo Plan</a></li>
-                            <li><a href="../Maintenance/GetAllCPSP">Ver Planes</a></li>
+                            <li>@Html.ActionLink("Crear Nuevo Plan", "NuevoPlan", "Home")</li>
+                            <li>@Html.ActionLink("Ver Planes", "VerPlanes", "Home")</li> 
                         </ul>
                     </li>
                     <li>
                         Ahorro
                         <ul>
-                            <li><a href="../Maintenance/Aporte">Registrar aporte a Ahorro</a></li>
+                            <li>@Html.ActionLink("Registrar aporte a Ahorro", "AporteAhorro", "Home")</li>
                         </ul>
                     </li>
                     <li>
                         Reportes
                         <ul>
-                            <li><a href="../Survey/GetAllSurveys">Estados de Cuenta por Grupo </a></li>
-                            <li><a href="../Reports/EncuestasRP.aspx">Estados de Cuenta por Asociado</a></li>
+                            <li>@Html.ActionLink("Estados de Cuenta por Grupo", "EstadoCuentaGrupo", "Home")</li>
+                            <li>@Html.ActionLink("Estados de Cuenta por Asociado", "EstadoCuentaSocio", "Home")</li> 
                         </ul>
                     </li>
                 </ul>
               
             </div>
 
-              @*   <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Grupos", "Grupos", "Home")
-                            <ul class="nav navbar-nav">
-                                <li>@Html.ActionLink("Grupos", "Grupos", "Home")
-    </ul>
-    </li>
-            </ul>
-                @Html.Partial("_LoginPartial")
-           </div>
-            *@ </div>
+            </div>
         </div>
    
      <div class="container body-content">

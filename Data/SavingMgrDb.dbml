@@ -12,14 +12,6 @@
       <Association Name="Socio_Ahorro" Member="Socio" ThisKey="IdSocio" OtherKey="IdSocio" Type="Socio" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Grupo" Member="Grupo">
-    <Type Name="Grupo">
-      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Fecha_Creacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Grupo_Socio" Member="Socio" ThisKey="IdGrupo" OtherKey="IdGrupo" Type="Socio" />
-    </Type>
-  </Table>
   <Table Name="dbo.[Plan]" Member="Plan">
     <Type Name="Plan">
       <Column Name="IdPlan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -53,6 +45,15 @@
       <Column Name="IdSocio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Plan_PlanesSocio" Member="Plan" ThisKey="IdPlan" OtherKey="IdPlan" Type="Plan" IsForeignKey="true" />
       <Association Name="Socio_PlanesSocio" Member="Socio" ThisKey="IdSocio" OtherKey="IdSocio" Type="Socio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Grupo" Member="Grupo">
+    <Type Name="Grupo">
+      <Column Name="IdGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Creacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Grupo_Socio" Member="Socio" ThisKey="IdGrupo" OtherKey="IdGrupo" Type="Socio" />
     </Type>
   </Table>
 </Database>

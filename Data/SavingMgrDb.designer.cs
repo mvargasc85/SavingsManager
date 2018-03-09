@@ -33,9 +33,6 @@ namespace SavingsManager.Data
     partial void InsertAhorro(Ahorro instance);
     partial void UpdateAhorro(Ahorro instance);
     partial void DeleteAhorro(Ahorro instance);
-    partial void InsertGrupo(Grupo instance);
-    partial void UpdateGrupo(Grupo instance);
-    partial void DeleteGrupo(Grupo instance);
     partial void InsertPlan(Plan instance);
     partial void UpdatePlan(Plan instance);
     partial void DeletePlan(Plan instance);
@@ -45,6 +42,9 @@ namespace SavingsManager.Data
     partial void InsertPlanesSocio(PlanesSocio instance);
     partial void UpdatePlanesSocio(PlanesSocio instance);
     partial void DeletePlanesSocio(PlanesSocio instance);
+    partial void InsertGrupo(Grupo instance);
+    partial void UpdateGrupo(Grupo instance);
+    partial void DeleteGrupo(Grupo instance);
     #endregion
 		
 		public SavingMgrDbDataContext() : 
@@ -85,14 +85,6 @@ namespace SavingsManager.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Grupo> Grupo
-		{
-			get
-			{
-				return this.GetTable<Grupo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Plan> Plan
 		{
 			get
@@ -114,6 +106,14 @@ namespace SavingsManager.Data
 			get
 			{
 				return this.GetTable<PlanesSocio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Grupo> Grupo
+		{
+			get
+			{
+				return this.GetTable<Grupo>();
 			}
 		}
 	}
@@ -379,144 +379,6 @@ namespace SavingsManager.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Grupo")]
-	public partial class Grupo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdGrupo;
-		
-		private string _Nombre;
-		
-		private System.DateTime _Fecha_Creacion;
-		
-		private EntitySet<Socio> _Socio;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdGrupoChanging(int value);
-    partial void OnIdGrupoChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnFecha_CreacionChanging(System.DateTime value);
-    partial void OnFecha_CreacionChanged();
-    #endregion
-		
-		public Grupo()
-		{
-			this._Socio = new EntitySet<Socio>(new Action<Socio>(this.attach_Socio), new Action<Socio>(this.detach_Socio));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdGrupo
-		{
-			get
-			{
-				return this._IdGrupo;
-			}
-			set
-			{
-				if ((this._IdGrupo != value))
-				{
-					this.OnIdGrupoChanging(value);
-					this.SendPropertyChanging();
-					this._IdGrupo = value;
-					this.SendPropertyChanged("IdGrupo");
-					this.OnIdGrupoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha_Creacion", DbType="DateTime NOT NULL")]
-		public System.DateTime Fecha_Creacion
-		{
-			get
-			{
-				return this._Fecha_Creacion;
-			}
-			set
-			{
-				if ((this._Fecha_Creacion != value))
-				{
-					this.OnFecha_CreacionChanging(value);
-					this.SendPropertyChanging();
-					this._Fecha_Creacion = value;
-					this.SendPropertyChanged("Fecha_Creacion");
-					this.OnFecha_CreacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_Socio", Storage="_Socio", ThisKey="IdGrupo", OtherKey="IdGrupo")]
-		public EntitySet<Socio> Socio
-		{
-			get
-			{
-				return this._Socio;
-			}
-			set
-			{
-				this._Socio.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Socio(Socio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Grupo = this;
-		}
-		
-		private void detach_Socio(Socio entity)
-		{
-			this.SendPropertyChanging();
-			entity.Grupo = null;
 		}
 	}
 	
@@ -1250,6 +1112,168 @@ namespace SavingsManager.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Grupo")]
+	public partial class Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdGrupo;
+		
+		private string _Nombre;
+		
+		private System.DateTime _Fecha_Creacion;
+		
+		private string _Descripcion;
+		
+		private EntitySet<Socio> _Socio;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdGrupoChanging(int value);
+    partial void OnIdGrupoChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnFecha_CreacionChanging(System.DateTime value);
+    partial void OnFecha_CreacionChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    #endregion
+		
+		public Grupo()
+		{
+			this._Socio = new EntitySet<Socio>(new Action<Socio>(this.attach_Socio), new Action<Socio>(this.detach_Socio));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrupo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdGrupo
+		{
+			get
+			{
+				return this._IdGrupo;
+			}
+			set
+			{
+				if ((this._IdGrupo != value))
+				{
+					this.OnIdGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._IdGrupo = value;
+					this.SendPropertyChanged("IdGrupo");
+					this.OnIdGrupoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha_Creacion", DbType="DateTime NOT NULL")]
+		public System.DateTime Fecha_Creacion
+		{
+			get
+			{
+				return this._Fecha_Creacion;
+			}
+			set
+			{
+				if ((this._Fecha_Creacion != value))
+				{
+					this.OnFecha_CreacionChanging(value);
+					this.SendPropertyChanging();
+					this._Fecha_Creacion = value;
+					this.SendPropertyChanged("Fecha_Creacion");
+					this.OnFecha_CreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Grupo_Socio", Storage="_Socio", ThisKey="IdGrupo", OtherKey="IdGrupo")]
+		public EntitySet<Socio> Socio
+		{
+			get
+			{
+				return this._Socio;
+			}
+			set
+			{
+				this._Socio.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Socio(Socio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grupo = this;
+		}
+		
+		private void detach_Socio(Socio entity)
+		{
+			this.SendPropertyChanging();
+			entity.Grupo = null;
 		}
 	}
 }

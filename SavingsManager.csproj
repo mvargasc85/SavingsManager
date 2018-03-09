@@ -196,6 +196,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Factory\ISavingsProvider.cs" />
+    <Compile Include="Factory\SavingsProviderFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -204,10 +206,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SavingMgrDb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Data\SavingsDataRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DTOModels\GroupDtoModel.cs" />
+    <Compile Include="Providers\PlanProvider.cs" />
+    <Compile Include="Providers\GroupProvider.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -327,6 +333,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Grupos.cshtml" />
     <Content Include="Views\Home\NuevoGrupo.cshtml" />
+    <Content Include="Views\Home\VerGrupos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
