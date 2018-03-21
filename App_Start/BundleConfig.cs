@@ -9,7 +9,8 @@ namespace SavingsManager
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-ui.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -27,7 +28,9 @@ namespace SavingsManager
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/kendo.common.css",
-                      "~/Content/kendo.blueopal.css"));
+                      "~/Content/kendo.blueopal.css",
+                      "~/Content/jquery-ui.css"
+                ));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                     "~/Scripts/Kendoui/kendo.web.min.js"));

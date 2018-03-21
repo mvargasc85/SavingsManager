@@ -79,6 +79,7 @@ function createGroupsGrid(divId, items) {
                     }
                 }
             },
+            
             pageSize: 5
         },
         //        height: 100,
@@ -86,13 +87,48 @@ function createGroupsGrid(divId, items) {
         sortable: true,
         filterable: true,
         columns: [
-            { field: "IdGrupo", title: "Id", width: "50px" },
             { field: "Nombre", title: "Nombre", width: "50px" },
             { field: "Descripcion", title: "Descripcion", width: "50px" },
-            { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy HH.mm.ss}" }
+            { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy}" },
+            {
+                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="alert2(${IdGrupo})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
+                    '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeleteGroup(${IdGrupo})">Eliminar</a>',
+                width: "40px", attributes: { style: "text-align:center;" }
+            }
+           
         ]
     });
 }
 
+function ConfirmDeleteGroup(idGrupo) {
+ $("#delete-group-dialog-confirm").dialog({
+        resizable: false,
+        height: "auto",
+        width: 400,
+        modal: true,
+        buttons: {
+            "Eliminar": function () {
+                deleteGroup(idGrupo);
+            },
+            "Cancelar": function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+}
+
+function  deleteGroup(idGrupo) {
+       $.ajax({
+        type: "Post",
+        url: "/Home/EliminarGrupo?idGrupo="+idGrupo,
+        success: function (result) {
+            var url = "/Home/VerGrupos";
+            window.location.href = url;
+        },
+        error: function (e) { display(e); }
+    });
+}
 
 function display(e) { alert(e); }
+
+

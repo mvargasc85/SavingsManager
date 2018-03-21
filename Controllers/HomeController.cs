@@ -73,18 +73,14 @@ namespace SavingsManager.Controllers
         public string GetGrupos()
         {
             var groups = _groupProvider.GetAllObjects() as IEnumerable<GroupDtoModel>;
-            ////return groups.ToList();
-            //return View(groups.ToList());
-
             return JsonConvert.SerializeObject(groups);
         }
-        //public string VerGrupos()
-        //{
-        //    var groups = _groupProvider.GetAllObjects() as IEnumerable<GroupDtoModel>;
-        //    ////return groups.ToList();
-        //    //return View(groups.ToList());
 
-        //    return JsonConvert.SerializeObject(groups);
-        //}
+        public void EliminarGrupo(int idGrupo)
+        {
+            var group = _groupProvider.GetObjectById(idGrupo);
+            _groupProvider.DeleteObject(group);
+        }
+        
     }
 }

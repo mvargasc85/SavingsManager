@@ -44,6 +44,20 @@ namespace SavingsManager.Data
             }
         }
 
+        public void DeleteGroup(Grupo group)
+        {
+            _savingsDataContext.Grupo.DeleteOnSubmit(group);
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         #endregion
     }
 }

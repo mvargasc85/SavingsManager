@@ -60,7 +60,8 @@ namespace SavingsManager.Providers
 
         public void DeleteObject(object item)
         {
-            throw new NotImplementedException();
+            var grupo = (Grupo) item;
+            SavingsDataRepository.DeleteGroup(grupo);
         }
     }
 }
