@@ -59,5 +59,50 @@ namespace SavingsManager.Data
         }
 
         #endregion
+
+        #region Socio Methods
+
+        public Socio GetSocioById(int id)
+        {
+            var socio = _savingsDataContext.Socio.SingleOrDefault(s => s.IdSocio == id);
+            return socio;
+        }
+
+        public IEnumerable<Socio> GetAllSocios()
+        {
+            var socios = _savingsDataContext.Socio.Select(g => g);
+            return socios;
+        }
+
+        public void AddSocio(Socio socio)
+        {
+            _savingsDataContext.Socio.InsertOnSubmit(socio);
+
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void DeleteSocio(Socio socio)
+        {
+            _savingsDataContext.Socio.DeleteOnSubmit(socio);
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

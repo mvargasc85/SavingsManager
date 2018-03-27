@@ -12,11 +12,13 @@ namespace SavingsManager.Controllers
     public class HomeController : Controller
     {
         private readonly ISavingsProvider _groupProvider;
+        private readonly ISavingsProvider _socioProvider;
         private readonly ISavingsProvider _planProvider;
 
         public HomeController()
         {
             _groupProvider = SavingsProviderFactory.CreateSavingsModelObject("Grupo");
+            _socioProvider = SavingsProviderFactory.CreateSavingsModelObject("Socio");
             _planProvider = SavingsProviderFactory.CreateSavingsModelObject("Plan");
         }
 
@@ -49,6 +51,21 @@ namespace SavingsManager.Controllers
             return View();
         }
 
+        public ActionResult Socios()
+        {
+            return View();
+        }
+
+        public ActionResult NuevoSocio()
+        {
+            return View();
+        }
+
+        public ActionResult VerSocios()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult CrearGrupo(GroupDtoModel groupModel)
         {
@@ -64,6 +81,21 @@ namespace SavingsManager.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult CrearSocio(SocioDtoModel socioModel)
+        {
+            try
+            {
+
+                _socioProvider.AddObject(socioModel);
+                return RedirectToAction("VerSocios");
+            }
+            catch 
+            {
+                return RedirectToAction("VerSocios");
+            }
+        }
+
         public ActionResult VerGrupos()
         {
             return View();
@@ -76,11 +108,23 @@ namespace SavingsManager.Controllers
             return JsonConvert.SerializeObject(groups);
         }
 
+
+        public string GetSocios()
+        {
+            var socios = _socioProvider.GetAllObjects() as IEnumerable<SocioDtoModel>;
+            return JsonConvert.SerializeObject(socios);
+        }
         public void EliminarGrupo(int idGrupo)
         {
             var group = _groupProvider.GetObjectById(idGrupo);
             _groupProvider.DeleteObject(group);
         }
-        
+
+        public void EliminarSocio(int idSocio)
+        {
+            var socio = _socioProvider.GetObjectById(idSocio);
+            _socioProvider.DeleteObject(socio);
+        }
+
     }
 }

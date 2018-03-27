@@ -22,7 +22,7 @@ namespace SavingsManager.Providers
         {
             var groups = (IEnumerable<Grupo>) SavingsDataRepository.GetAllGroups().ToList();
 
-            var groupDtoModelList = new List<GroupDtoModel>();
+            var groupDtoModelList = new List<GroupDtoModel      >();
 
             groups.ForEach(group => groupDtoModelList.Add(new GroupDtoModel
             {
