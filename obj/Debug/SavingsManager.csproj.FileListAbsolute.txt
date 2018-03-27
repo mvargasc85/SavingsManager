@@ -99,4 +99,3 @@ C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.Depl
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.pdb
-C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.csprojResolveAssemblyReference.cache
