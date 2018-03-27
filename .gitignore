@@ -4,3 +4,4 @@ obj/Debug/TempPE/Data.SavingMgrDb.designer.cs.dll
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
+/.vs/SavingsManager/v15/Server/sqlite3
