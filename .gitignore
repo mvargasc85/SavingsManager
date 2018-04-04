@@ -5,3 +5,7 @@ obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
 /.vs/SavingsManager/v15/Server/sqlite3
+bin/Antlr3.Runtime.dll
+*.dll
+*.dll
+bin/Antlr3.Runtime.pdb

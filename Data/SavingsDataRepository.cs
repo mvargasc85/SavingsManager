@@ -50,7 +50,6 @@ namespace SavingsManager.Data
 
             group.Nombre = groupModel.Nombre;
             group.Descripcion = groupModel.Descripcion;
-            group.Fecha_Creacion = groupModel.FechaCreacion;
 
             _savingsDataContext.SubmitChanges();
 
