@@ -225,7 +225,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Factory\ISavingsProvider.cs" />
     <Compile Include="Factory\SavingsProviderFactory.cs" />
