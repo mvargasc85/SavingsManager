@@ -12,10 +12,10 @@ function saveSocio() {
     var socioModel = getSocioModel();
     $.ajax({
         type: "Post",
-        url: "/Home/CrearSocio",
+        url: "/Socio/CrearSocio",
         data: socioModel,
         success: function (result) {
-            var url = "/Home/VerSocios";
+            var url = "/Socio/VerSocios";
             window.location.href = url;
         },
         error: function (e) { display(e); }
@@ -46,8 +46,6 @@ function cancelAddingSocio() {
 }
 
 
-
-
 function getGroupDropDownList() {
     debugger;
     var grupoId = $("#grupoDropDown").val();
@@ -76,7 +74,7 @@ function showGroupsCombo(result) {
 function getAllSocios() {
     $.ajax({
         type: "get",
-        url: "/Home/GetSocios",
+        url: "/Socio/GetSocios",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         //  async: true,
@@ -101,8 +99,6 @@ function showSociosGrid(result) {
         $("#sociosDiv").hide();
 
 }
-
-
 
 function createSociosGrid(divId, items) {
     $("#" + divId).kendoGrid({
@@ -143,7 +139,7 @@ function createSociosGrid(divId, items) {
 }
 
 function EditSocio(idSocio) {
-    var url = "/Home/EditarSocio?idSocio=" + idSocio;
+    var url = "/Socio/EditarSocio?idSocio=" + idSocio;
     window.location.href = url;
 }
 function ConfirmDeleteSocio(idSocio) {
@@ -166,9 +162,9 @@ function ConfirmDeleteSocio(idSocio) {
 function deleteSocio(idSocio) {
     $.ajax({
         type: "Post",
-        url: "/Home/EliminarSocio?idSocio=" + idSocio,
+        url: "/Socio/EliminarSocio?idSocio=" + idSocio,
         success: function (result) {
-            var url = "/Home/VerSocios";
+            var url = "/Socio/VerSocios";
             window.location.href = url;
         },
         error: function (e) { display(e); }
