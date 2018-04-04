@@ -44,6 +44,19 @@ namespace SavingsManager.Data
             }
         }
 
+        public void UpdateGroup(GroupDtoModel groupModel)
+        {
+            var group = (Grupo) GetGroupById(groupModel.IdGrupo);
+
+            group.Nombre = groupModel.Nombre;
+            group.Descripcion = groupModel.Descripcion;
+            group.Fecha_Creacion = groupModel.FechaCreacion;
+
+            _savingsDataContext.SubmitChanges();
+
+        }
+
+
         public void DeleteGroup(Grupo group)
         {
             _savingsDataContext.Grupo.DeleteOnSubmit(group);
@@ -57,7 +70,9 @@ namespace SavingsManager.Data
                 throw;
             }
         }
+        
 
+       
         #endregion
     }
 }

@@ -91,12 +91,24 @@ function createGroupsGrid(divId, items) {
             { field: "Descripcion", title: "Descripcion", width: "50px" },
             { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy}" },
             {
-                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="alert2(${IdGrupo})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
+                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="EditGroup(${IdGrupo})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
                     '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeleteGroup(${IdGrupo})">Eliminar</a>',
                 width: "40px", attributes: { style: "text-align:center;" }
             }
            
         ]
+    });
+}
+
+function EditGroup(idGrupo) {
+    $.ajax({
+        type: "get",
+        url: "/Home/GetGroupById?idGrupo=" + idGrupo,
+        success: function (result) {
+            var url = "/Home/EditGrupos";
+            window.location.href = url;
+        },
+        error: function (e) { display(e); }
     });
 }
 

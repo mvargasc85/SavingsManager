@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+<br /><br />
+<fieldset style="width: 400px">
+    <legend>Editar Grupo</legend>
+    <br /><br />
+    <table id="groupInfoTbl">
+        <tr>
+            <td style="width: 200px;"><label>Nombre del Grupo:</label></td>
+            <td style="width: 200px;"><input id="groupNameTxt" /></td>
+
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Descripción:</label></td>
+            <td style="width: 200px;"><input id="groupDescriptionTxt" /></td>
+        </tr>
+        <tr><td colspan="2"></td></tr>
+        <tr><td colspan="2"></td></tr>
+    </table>
+</fieldset>
+<br /><br />
+
+<div id="bottonsDiv" style="width: 400px; margin-right: 5px">
+    <input id="cancelAddingGroupBtn" class="k-button" value="Cancelar" />
+    <input id="AddGroupBtn" class="k-button" value="Guardar" />
+</div>
+
+
+@Scripts.Render("~/bundles/editGroup.js")

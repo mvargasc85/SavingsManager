@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using SavingsManager.Data;
 using SavingsManager.Factory;
 using SavingsManager.Models.DTOModels;
 
@@ -74,6 +75,26 @@ namespace SavingsManager.Controllers
         {
             var groups = _groupProvider.GetAllObjects() as IEnumerable<GroupDtoModel>;
             return JsonConvert.SerializeObject(groups);
+        }
+
+        public string GetGroupById(int idGrupo)
+        {
+            var group = (Grupo)_groupProvider.GetObjectById(idGrupo);
+
+            var groupDtoModel = new GroupDtoModel
+            {
+                IdGrupo = group.IdGrupo,
+                Nombre = group.Nombre,
+                Descripcion = group.Descripcion,
+                FechaCreacion = group.Fecha_Creacion
+            };
+            return JsonConvert.SerializeObject(groupDtoModel);
+        }
+
+        public ActionResult EditarGrupo(GroupDtoModel grupo)
+        {
+            _groupProvider.UpdateObject(grupo);
+            return RedirectToAction("VerGrupos");
         }
 
         public void EliminarGrupo(int idGrupo)
