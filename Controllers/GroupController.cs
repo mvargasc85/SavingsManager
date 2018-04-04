@@ -66,7 +66,7 @@ namespace SavingsManager.Controllers
 
         public GroupDtoModel GetGroupDtoById(int idGrupo)
         {
-            var group = (Grupo) _groupProvider.GetObjectById(idGrupo);
+            var group = (Grupo)_groupProvider.GetObjectById(idGrupo);
 
             return new GroupDtoModel
             {

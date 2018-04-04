@@ -225,8 +225,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="Factory\ISavingsProvider.cs" />
     <Compile Include="Factory\SavingsProviderFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -319,6 +319,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\editSocio.js" />
     <Content Include="Scripts\editGroup.js" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\grupo.js" />
@@ -334,6 +335,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\savings.js" />
+    <Content Include="Scripts\socio.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -373,8 +375,9 @@
     <Content Include="Views\Group\NuevoGrupo.cshtml" />
     <Content Include="Views\Group\VerGrupos.cshtml" />
     <Content Include="Views\Group\EditarGrupo.cshtml" />
-    <Content Include="Views\Home\NuevoSocio.cshtml" />
-    <Content Include="Views\Home\VerSocios.cshtml" />
+    <Content Include="Views\Socio\NuevoSocio.cshtml" />
+    <Content Include="Views\Socio\VerSocios.cshtml" />
+    <Content Include="Views\Socio\EditarSocio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

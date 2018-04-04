@@ -66,7 +66,8 @@ namespace SavingsManager.Providers
 
         public void UpdateObject(object item)
         {
-            throw new NotImplementedException();
+            var socioModel = (SocioDtoModel)item;
+            SavingsDataRepository.UpdateSocio(socioModel);
         }
 
         public void DeleteObject(object item)
