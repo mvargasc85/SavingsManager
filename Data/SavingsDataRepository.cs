@@ -103,6 +103,19 @@ namespace SavingsManager.Data
             }
         }
 
+        public void UpdateSocio(SocioDtoModel socioModel)
+        {
+            var socio = (Socio)GetSocioById(socioModel.IdSocio);
+
+            socio.Nombre = socioModel.Nombre;
+            socio.Apellido1 = socioModel.Apellido1;
+            socio.Apellido2 = socioModel.Apellido2;
+            socio.Email = socioModel.Email;
+            socio.IdGrupo = socio.IdGrupo;
+
+            _savingsDataContext.SubmitChanges();
+
+        }
         public void DeleteSocio(Socio socio)
         {
             _savingsDataContext.Socio.DeleteOnSubmit(socio);

@@ -1,0 +1,59 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model SavingsManager.Models.DTOModels.SocioDtoModel
+
+
+<br /><br />
+<br /><br />
+      <fieldset style="width: 600px">
+          <legend>Editar Socio</legend>
+          <br /><br />
+          @using (Html.BeginForm())
+    {
+      @Html.ValidationSummary(true)
+      @Html.HiddenFor(model => model.IdSocio)
+      <table id="groupInfoTbl">
+          <tr>
+              <td style="width: 200px;"><label>Nombre:</label></td>
+              <td style="width: 200px;">@Html.EditorFor(model => model.Nombre, new { @class = "k-textbox", required = "required" })</td>
+              <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Nombre)</td>
+
+          </tr>
+          <tr>
+              <td style="width: 200px;"><label>Primer Apellido:</label></td>
+              <td style="width: 200px;">@Html.EditorFor(model => model.Apellido1, new { @class = "k-textbox", required = "required" })</td>
+              <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Apellido1)</td>
+          </tr>
+          <tr>
+              <td style="width: 200px;"><label>Segundo Apellido:</label></td>
+              <td style="width: 200px;">@Html.EditorFor(model => model.Apellido2, new { @class = "k-textbox", required = "required" })</td>
+              <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Apellido2)</td>
+          </tr>
+          <tr>
+              <td style="width: 200px;"><label>Email:</label></td>
+              <td style="width: 200px;">@Html.EditorFor(model => model.Email, new { @class = "k-textbox", required = "required" })</td>
+              <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Email)</td>
+          </tr>
+          <tr>
+              <td style="width: 200px;"><label>Grupo:</label></td>
+              <td style="width: 200px;">
+                  <select id="grupoDropDown">
+                      <option>---Selecione el grupo---</option>
+                  </select>
+              </td>
+              <td style="width: 200px;">@Html.EditorFor(model => model.IdGrupo, new { @class = "k-textbox", required = "required" })</td>
+              <td style="width: 200px;">@Html.ValidationMessageFor(model => model.IdGrupo)</td>
+          </tr>
+          <tr><td colspan="2"></td></tr>
+          <tr><td colspan="2"></td></tr>
+      </table>
+      <br /><br />
+      <div id="bottonsDiv" style="width: 600px; margin-right: 5px">
+          <input type="submit" value="Modificar" class="k-button" style="width: 186px" />
+          @Html.ActionLink("Cancelar", "VerSocios", null, new { @class = "k-button", @style = "width:186px" })
+      </div>
+}
+      </fieldset>
+<br /><br />
+
+

@@ -57,10 +57,6 @@ function getGroupDropDownList() {
         datatype: "json",
         contentType: "application/json; charset=utf-8",
         success: function (result) {
-            //$("#grupoDropDown").html("");
-            //$("#grupoDropDown").append
-            //    ($('<option></option>').val(null).html("---Selecione el grupo---"));
-            //$.each($.parseJSON(result), function (i, grupo) { $("#grupoDropDown").append($('<option></option>').val(grupo.IdGrupo).html(grupo.Nombre)) })
             CreateDropDownlist("grupoDropDown", $.parseJSON(result), "Nombre", "IdGrupo", null, "Seleccione ...", null);
         },
         error: function () { alert("Problema al cargar los grupos") },
@@ -138,16 +134,18 @@ function createSociosGrid(divId, items) {
             { field: "Email", title: "Email", width: "50px" },
             { field: "IdGrupo", title: "IdGrupo", width: "50px" },
             {
-                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="alert2(${IdSocio})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
+                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="EditSocio(${IdSocio})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
                 '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeleteSocio(${IdSocio})">Eliminar</a>',
                 width: "40px", attributes: { style: "text-align:center;" }
             }
-
         ]
     });
 }
 
-
+function EditSocio(idSocio) {
+    var url = "/Home/EditarSocio?idSocio=" + idSocio;
+    window.location.href = url;
+}
 function ConfirmDeleteSocio(idSocio) {
     $("#delete-socio-dialog-confirm").dialog({
         resizable: false,
