@@ -10,13 +10,13 @@ using SavingsManager.Models.DTOModels;
 
 namespace SavingsManager.Controllers
 {
-    public class SocioController : Controller
+    public class GroupController : Controller
     {
         private readonly ISavingsProvider _groupProvider;
 
-        public SocioController()
+        public GroupController()
         {
-            _socioProvider = SavingsProviderFactory.CreateSavingsModelObject("Socio");
+            _groupProvider = SavingsProviderFactory.CreateSavingsModelObject("Grupo");
         }
 
         public ActionResult Grupos()
@@ -66,7 +66,7 @@ namespace SavingsManager.Controllers
 
         public GroupDtoModel GetGroupDtoById(int idGrupo)
         {
-            var group = (Grupo) _groupProvider.GetObjectById(idGrupo);
+            var group = (Grupo)_groupProvider.GetObjectById(idGrupo);
 
             return new GroupDtoModel
             {
