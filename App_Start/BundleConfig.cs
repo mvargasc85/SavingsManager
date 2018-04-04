@@ -37,6 +37,9 @@ namespace SavingsManager
 
             bundles.Add(new ScriptBundle("~/bundles/savings").Include(
                      "~/Scripts/savings.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/groups").Include(
+                "~/Scripts/grupo.js"));
         }
     }
 }

@@ -1,29 +1,11 @@
 ﻿$(document).ready(function () {
     $("#Menu1").kendoMenu();
-    $("#AddGroupBtn").on("click", saveGroup);
     $("#AddSocioBtn").on("click", saveSocio);
-    $("#cancelAddingGroupBtn").on("click", cancelAddingGroup);
     $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
-    getAllGroups();
     getAllSocios();
-    getGroupList();
+    getGroupDropDownList();
 });
 
-//groups methods
-function saveGroup() {
-    
-        var groupModel = getGroupModel();
-        $.ajax({
-            type: "Post",
-            url: "/Home/CrearGrupo",
-            data: groupModel,
-            success: function (result) {
-                var url = "/Home/VerGrupos";
-                window.location.href = url;
-            },
-            error: function (e) { display(e); }
-        });
-}
 
 function saveSocio() {
 
@@ -40,16 +22,6 @@ function saveSocio() {
     });
 }
 
-function getGroupModel() {
-    var groupModel =
-    {
-        IdGrupo: null,
-        Nombre: $("#groupNameTxt").val(),
-        Descripcion: $("#groupDescriptionTxt").val()
-    };
-    
-    return groupModel;
-}
 
 function getSocioModel() {
     var socioModel =
@@ -59,16 +31,12 @@ function getSocioModel() {
             Apellido1: $("#socioApellido1Txt").val(),
             Apellido2: $("#socioApellido2Txt").val(),
             Email: $("#socioEmailTxt").val(),
-            IdGrupo: $("#grupoDropDown").val()
+            IdGrupo: dropDownListObject("grupoDropDown").value()
         };
 
     return socioModel;
 }
 
-function cancelAddingGroup() {
-    $("#groupNameTxt").val("");
-    $("#groupDescriptionTxt").val("");
-}
 
 function cancelAddingSocio() {
     $("#socioNombreTxt").val("");
@@ -78,37 +46,22 @@ function cancelAddingSocio() {
 }
 
 
-function getAllGroups() {
-    $.ajax({
-        type: "get",
-        url: "/Home/GetGrupos",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        //  async: true,
-        success: function(result) {
-             showGroupsGrid(result);
-        },
-        error: function(e) {
-             display(e);
-        }
-    });
-}
 
-function getGroupList() {
+
+function getGroupDropDownList() {
     debugger;
     var grupoId = $("#grupoDropDown").val();
     $.ajax({
-        url: "/Home/GetGrupos",
+        url: "/Group/GetGrupos",
         type: "get",
         datatype: "json",
         contentType: "application/json; charset=utf-8",
-        //data: JSON.stringify({ groupId: + groupId }),
         success: function (result) {
-            $("#grupoDropDown").html("");
-            $("#grupoDropDown").append
-                ($('<option></option>').val(null).html("---Selecione el grupo---"));
-            $.each($.parseJSON(result), function (i, grupo) { $("#grupoDropDown").append($('<option></option>').val(grupo.IdGrupo).html(grupo.Nombre)) })
-
+            //$("#grupoDropDown").html("");
+            //$("#grupoDropDown").append
+            //    ($('<option></option>').val(null).html("---Selecione el grupo---"));
+            //$.each($.parseJSON(result), function (i, grupo) { $("#grupoDropDown").append($('<option></option>').val(grupo.IdGrupo).html(grupo.Nombre)) })
+            CreateDropDownlist("grupoDropDown", $.parseJSON(result), "Nombre", "IdGrupo", null, "Seleccione ...", null);
         },
         error: function () { alert("Problema al cargar los grupos") },
     });
@@ -119,8 +72,6 @@ function showGroupsCombo(result) {
     if (result !== "") {
         createGroupsGrid("groupsGrid", result);
         $("#groupsDiv").show();
-        //var url = "/Home/VerGrupos";
-        //window.location.href = url;
     } else
         $("#groupsDiv").hide();
 
@@ -142,17 +93,6 @@ function getAllSocios() {
     });
 }
 
-function showGroupsGrid(result) {
-
-    if (result !== "") {
-        createGroupsGrid("groupsGrid", result);
-        $("#groupsDiv").show();
-        //var url = "/Home/VerGrupos";
-        //window.location.href = url;
-    } else
-        $("#groupsDiv").hide();
-
-}
 
 function showSociosGrid(result) {
 
@@ -166,40 +106,7 @@ function showSociosGrid(result) {
 
 }
 
-function createGroupsGrid(divId, items) {
-    $("#" + divId).kendoGrid({
-        dataSource: {
-            data: items,
-            schema: {
-                model: {
-                    fields: {
-                        IdGrupo: { type: "number" },
-                        Nombre: { type: "string" },
-                        Descripcion: { type: "string" },
-                        FechaCreacion: { type: "date" }
-                    }
-                }
-            },
-            
-            pageSize: 5
-        },
-        //        height: 100,
-        scrollable: false,
-        sortable: true,
-        filterable: true,
-        columns: [
-            { field: "Nombre", title: "Nombre", width: "50px" },
-            { field: "Descripcion", title: "Descripcion", width: "50px" },
-            { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy}" },
-            {
-                template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="alert2(${IdGrupo})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
-                    '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeleteGroup(${IdGrupo})">Eliminar</a>',
-                width: "40px", attributes: { style: "text-align:center;" }
-            }
-           
-        ]
-    });
-}
+
 
 function createSociosGrid(divId, items) {
     $("#" + divId).kendoGrid({
@@ -241,35 +148,6 @@ function createSociosGrid(divId, items) {
 }
 
 
-function ConfirmDeleteGroup(idGrupo) {
- $("#delete-group-dialog-confirm").dialog({
-        resizable: false,
-        height: "auto",
-        width: 400,
-        modal: true,
-        buttons: {
-            "Eliminar": function () {
-                deleteGroup(idGrupo);
-            },
-            "Cancelar": function () {
-                $(this).dialog("close");
-            }
-        }
-    });
-}
-
-function  deleteGroup(idGrupo) {
-       $.ajax({
-        type: "Post",
-        url: "/Home/EliminarGrupo?idGrupo="+idGrupo,
-        success: function (result) {
-            var url = "/Home/VerGrupos";
-            window.location.href = url;
-        },
-        error: function (e) { display(e); }
-    });
-}
-
 function ConfirmDeleteSocio(idSocio) {
     $("#delete-socio-dialog-confirm").dialog({
         resizable: false,
@@ -302,3 +180,22 @@ function deleteSocio(idSocio) {
 function display(e) { alert(e); }
 
 
+function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, selectPlaceHolder, dataBoundEvent) {
+
+    $("#" + divId).kendoDropDownList({
+        optionLabel: selectPlaceHolder,
+        dataTextField: text,
+        dataValueField: value,
+        dataSource: items,
+        index: 0,
+        change: onchanceEventHandler,
+        open: dataBoundEvent
+    });
+
+    dropDownListObject(divId).select(0);
+}
+
+
+var dropDownListObject = (function (ddlId) {
+    return $('#' + ddlId).data("kendoDropDownList");
+});

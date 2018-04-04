@@ -41,6 +41,7 @@ namespace SavingsManager.Providers
             return SavingsDataRepository.GetGroupById(id);
         }
 
+
         public void AddObject(object item)
         {
             var groupModel = (GroupDtoModel) item;
@@ -55,7 +56,8 @@ namespace SavingsManager.Providers
 
         public void UpdateObject(object item)
         {
-            throw new NotImplementedException();
+            var groupModel = (GroupDtoModel) item;
+            SavingsDataRepository.UpdateGroup(groupModel);
         }
 
         public void DeleteObject(object item)
@@ -63,5 +65,6 @@ namespace SavingsManager.Providers
             var grupo = (Grupo) item;
             SavingsDataRepository.DeleteGroup(grupo);
         }
+        
     }
 }

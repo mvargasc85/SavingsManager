@@ -1,0 +1,41 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model SavingsManager.Models.DTOModels.GroupDtoModel
+
+
+<br /><br />
+<br /><br />
+<fieldset style="width: 600px">
+    <legend>Editar Grupo</legend>
+    <br /><br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.IdGrupo)
+    <table id="groupInfoTbl">
+        <tr>
+            <td style="width: 200px;"><label>Nombre del Grupo:</label></td>
+            <td style="width: 200px;">@Html.EditorFor(model => model.Nombre, new {@class = "k-textbox", required="required"})</td>
+            <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Nombre)</td>
+
+
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Descripción:</label></td>
+            <td style="width: 200px;">@Html.EditorFor(model => model.Descripcion, new {@class = "k-textbox"})</td>
+            <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Descripcion)</td>
+        </tr>
+        <tr><td colspan="3"></td></tr>
+        <tr><td colspan="3"></td></tr>
+        
+    </table>
+    <br /><br />
+    <div id="bottonsDiv" style="width: 600px; margin-right: 5px">
+        @Html.ActionLink("Cancelar", "VerGrupos", null, new { @class = "k-button", @style="width:186px" })
+        <input type="submit" value="Modificar" class="k-button" style="width: 186px"/>
+    </div>
+}
+</fieldset>
+<br /><br />
+
+
