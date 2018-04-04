@@ -10,6 +10,8 @@ namespace SavingsManager.Factory
             {
                 case "Grupo":
                     return new GroupProvider();
+                case "Socio":
+                    return new SocioProvider();
                 case "Plan":
                     return new PlanProvider();
                 default:
