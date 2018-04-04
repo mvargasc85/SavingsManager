@@ -3,8 +3,10 @@
     $("#AddGroupBtn").on("click", saveGroup);
     $("#AddSocioBtn").on("click", saveSocio);
     $("#cancelAddingGroupBtn").on("click", cancelAddingGroup);
+    $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
     getAllGroups();
     getAllSocios();
+    getGroupList();
 });
 
 //groups methods
@@ -57,7 +59,7 @@ function getSocioModel() {
             Apellido1: $("#socioApellido1Txt").val(),
             Apellido2: $("#socioApellido2Txt").val(),
             Email: $("#socioEmailTxt").val(),
-            IdGrupo: $("#socioGrupo").val()
+            IdGrupo: $("#grupoDropDown").val()
         };
 
     return socioModel;
@@ -67,6 +69,14 @@ function cancelAddingGroup() {
     $("#groupNameTxt").val("");
     $("#groupDescriptionTxt").val("");
 }
+
+function cancelAddingSocio() {
+    $("#socioNombreTxt").val("");
+    $("#socioApellido1Txt").val("");
+    $("#socioApellido2Txt").val("");
+    $("#socioEmailTxt").val("");
+}
+
 
 function getAllGroups() {
     $.ajax({
@@ -82,6 +92,38 @@ function getAllGroups() {
              display(e);
         }
     });
+}
+
+function getGroupList() {
+    debugger;
+    var grupoId = $("#grupoDropDown").val();
+    $.ajax({
+        url: "/Home/GetGrupos",
+        type: "get",
+        datatype: "json",
+        contentType: "application/json; charset=utf-8",
+        //data: JSON.stringify({ groupId: + groupId }),
+        success: function (result) {
+            $("#grupoDropDown").html("");
+            $("#grupoDropDown").append
+                ($('<option></option>').val(null).html("---Selecione el grupo---"));
+            $.each($.parseJSON(result), function (i, grupo) { $("#grupoDropDown").append($('<option></option>').val(grupo.IdGrupo).html(grupo.Nombre)) })
+
+        },
+        error: function () { alert("Problema al cargar los grupos") },
+    });
+}
+
+function showGroupsCombo(result) {
+
+    if (result !== "") {
+        createGroupsGrid("groupsGrid", result);
+        $("#groupsDiv").show();
+        //var url = "/Home/VerGrupos";
+        //window.location.href = url;
+    } else
+        $("#groupsDiv").hide();
+
 }
 
 function getAllSocios() {

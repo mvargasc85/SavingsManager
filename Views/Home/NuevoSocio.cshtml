@@ -7,35 +7,44 @@
 <fieldset style="width: 400px">
     <legend>Nuevo Socio</legend>
     <br /><br />
-          <table id="groupInfoTbl">
-              <tr>
-                  <td style="width: 200px;"><label>Nombre:</label></td>
-                  <td style="width: 200px;"><input id="socioNombreTxt" /></td>
+    <table id="groupInfoTbl">
+        <tr>
+            <td style="width: 200px;"><label>Nombre:</label></td>
+            <td style="width: 200px;"><input id="socioNombreTxt" /></td>
 
-              </tr>
-              <tr>
-                  <td style="width: 200px;"><label>Primer Apellido:</label></td>
-                  <td style="width: 200px;"><input id="socioApellido1Txt" /></td>
-              </tr>
-              <tr>
-                  <td style="width: 200px;"><label>Segundo Apellido:</label></td>
-                  <td style="width: 200px;"><input id="socioApellido2Txt" /></td>
-              </tr>
-              <tr>
-                  <td style="width: 200px;"><label>Email:</label></td>
-                  <td style="width: 200px;"><input id="socioEmailTxt" /></td>
-              </tr>
-              <tr>
-                  <td style="width: 200px;"><label>Grupo:</label></td>
-                  <td style="width: 200px;"><input id="socioGrupo" /></td>
-              </tr>
-              <tr><td colspan="2"></td></tr>
-              <tr><td colspan="2"></td></tr>
-          </table>
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Primer Apellido:</label></td>
+            <td style="width: 200px;"><input id="socioApellido1Txt" /></td>
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Segundo Apellido:</label></td>
+            <td style="width: 200px;"><input id="socioApellido2Txt" /></td>
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Email:</label></td>
+            <td style="width: 200px;"><input id="socioEmailTxt" /></td>
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>Grupo:</label></td>
+            <td style="width: 200px;">
+                @*<input id="socioGrupo" type=text list=browsers>
+        <datalist id="browsers">
+            <option value="7">
+            <option value="B">
+        </datalist>*@
+                <select id="grupoDropDown">
+                    <option>---Selecione el grupo---</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td colspan="2"></td></tr>
+        <tr><td colspan="2"></td></tr>
+    </table>
 </fieldset>
 <br /><br />
 
 <div id="bottonsDiv" style="width: 400px; margin-right: 5px">
     <input id="AddSocioBtn" class="k-button" value="Guardar" />
-    <input id="cancelAddingGroupBtn" class="k-button" value="Cancelar" />
+    <input id="cancelAddingSocioBtn" class="k-button" value="Cancelar" />
 </div>

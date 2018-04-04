@@ -1,4 +1,3 @@
-C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.csproj.CoreCompileInputs.cache
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\ApplicationInsights.config
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\roslyn\csc.exe
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -97,5 +96,6 @@ C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.Razor.resourc
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.resources.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.csproj.CoreCompileInputs.cache
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.pdb
