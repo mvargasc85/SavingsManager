@@ -357,7 +357,6 @@
     <Content Include="Views\Home\Grupos.cshtml" />
     <Content Include="Views\Home\NuevoGrupo.cshtml" />
     <Content Include="Views\Home\VerGrupos.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Home\EditarGrupo.cshtml" />
     <Content Include="Views\Home\NuevoSocio.cshtml" />
     <Content Include="Views\Home\VerSocios.cshtml" />
