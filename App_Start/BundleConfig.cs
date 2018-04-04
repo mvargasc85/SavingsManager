@@ -34,12 +34,13 @@ namespace SavingsManager
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                     "~/Scripts/Kendoui/kendo.web.min.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/savings").Include(
-                     "~/Scripts/savings.js"));
+            "~/Scripts/savings.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/groups").Include(
                 "~/Scripts/grupo.js"));
+            bundles.Add(new ScriptBundle("~/bundles/socios").Include(
+                "~/Scripts/socio.js"));
         }
     }
 }
