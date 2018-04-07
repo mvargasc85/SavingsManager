@@ -12,6 +12,7 @@
     {
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.IdSocio)
+        @*@Html.HiddenFor(model => model.IdGrupo)*@
         <table id="groupInfoTbl">
             <tr>
                 <td style="width: 200px;"><label>Nombre:</label></td>
@@ -33,13 +34,13 @@
                 <td style="width: 200px;"><label>Email:</label></td>
                 <td style="width: 200px;">@Html.EditorFor(model => model.Email, new { @class = "k-textbox", required = "required" })</td>
                 <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Email)</td>
+                
+              
             </tr>
             <tr>
                 <td style="width: 200px;"><label>Grupo:</label></td>
                 <td style="width: 200px;">
-                    <select id="grupoDropDown">
-                        <option>---Selecione el grupo---</option>
-                    </select>
+                   @Html.DropDownListFor(model => model.IdGrupo, Model.Grupos, "Seleccione Grupo")
                 </td>
             </tr>
             <tr><td colspan="2"></td></tr>

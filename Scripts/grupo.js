@@ -89,6 +89,7 @@ function createGroupsGrid(divId, items) {
         sortable: true,
         filterable: true,
         columns: [
+            { field: "IdGrupo", title: "Id", width: "30px" },
             { field: "Nombre", title: "Nombre", width: "50px" },
             { field: "Descripcion", title: "Descripcion", width: "50px" },
             { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy}" },

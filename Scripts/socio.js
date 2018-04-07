@@ -1,10 +1,13 @@
 ﻿$(document).ready(function () {
-    $("#Menu1").kendoMenu();
+   
     $("#AddSocioBtn").on("click", saveSocio);
     $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
     getAllSocios();
     getGroupDropDownList();
+
+   
 });
+
 
 
 function saveSocio() {
@@ -56,8 +59,9 @@ function getGroupDropDownList() {
         contentType: "application/json; charset=utf-8",
         success: function (result) {
             CreateDropDownlist("grupoDropDown", $.parseJSON(result), "Nombre", "IdGrupo", null, "Seleccione ...", null);
+
         },
-        error: function () { alert("Problema al cargar los grupos") },
+        error: function () { alert("Problema al cargar los grupos") }
     });
 }
 

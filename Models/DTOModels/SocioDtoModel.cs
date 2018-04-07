@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SavingsManager.Models.DTOModels
 {
@@ -14,6 +15,8 @@ namespace SavingsManager.Models.DTOModels
         public string Apellido2 { get; set; }
         public string Email { get; set; }
         public int IdGrupo { get; set; }
+
+        public IEnumerable<SelectListItem> Grupos { get; set; }
 
     }
 }

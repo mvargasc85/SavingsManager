@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using SavingsManager.Data;
 using SavingsManager.Factory;
 using SavingsManager.Models.DTOModels;
@@ -64,6 +65,22 @@ namespace SavingsManager.Providers
         {
             var grupo = (Grupo) item;
             SavingsDataRepository.DeleteGroup(grupo);
+        }
+
+        public IEnumerable<SelectListItem> GetGroupSelectList()
+        {
+            var grupos = (IEnumerable<GroupDtoModel>) GetAllObjects();
+            var groupSelectList = new List<SelectListItem>();
+            foreach (var groupDtoModel in grupos)
+            {
+                groupSelectList.Add(new SelectListItem
+                {
+                    Text = groupDtoModel.Nombre,
+                    Value = groupDtoModel.IdGrupo.ToString()
+                });
+            }
+
+            return groupSelectList;
         }
         
     }

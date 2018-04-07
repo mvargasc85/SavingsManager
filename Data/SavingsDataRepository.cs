@@ -111,7 +111,7 @@ namespace SavingsManager.Data
             socio.Apellido1 = socioModel.Apellido1;
             socio.Apellido2 = socioModel.Apellido2;
             socio.Email = socioModel.Email;
-            socio.IdGrupo = socio.IdGrupo;
+            socio.IdGrupo = socioModel.IdGrupo;
 
             _savingsDataContext.SubmitChanges();
 

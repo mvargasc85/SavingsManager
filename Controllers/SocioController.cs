@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using SavingsManager.Data;
 using SavingsManager.Factory;
 using SavingsManager.Models.DTOModels;
+using SavingsManager.Providers;
 
 namespace SavingsManager.Controllers
 {
@@ -96,7 +97,7 @@ namespace SavingsManager.Controllers
         public SocioDtoModel GetSocioDtoById(int idSocio)
         {
             var socio = (Socio)_socioProvider.GetObjectById(idSocio);
-
+            var groupSelectList =  new GroupProvider().GetGroupSelectList();
             return new SocioDtoModel
             {
                 IdSocio = socio.IdSocio,
@@ -104,8 +105,11 @@ namespace SavingsManager.Controllers
                 Apellido1 = socio.Apellido1,
                 Apellido2 = socio.Apellido2,
                 Email = socio.Email,
-                IdGrupo = socio.IdGrupo
+                IdGrupo = socio.IdGrupo,
+                Grupos = groupSelectList
             };
         }
+
+       
     }
 }
