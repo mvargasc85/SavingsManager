@@ -131,5 +131,65 @@ namespace SavingsManager.Data
         }
 
         #endregion
+
+         #region Plan Methods
+
+        public Plan GetPlanById(int id)
+        {
+            var plan = _savingsDataContext.Plan.SingleOrDefault(s => s.IdPlan == id);
+            return plan;
+        }
+
+        public IEnumerable<Plan> GetAllPlanes()
+        {
+            var planes = _savingsDataContext.Plan.Select(g => g);
+            return planes;
+        }
+
+        public void AddPlan(Plan plan)
+        {
+            _savingsDataContext.Plan.InsertOnSubmit(plan);
+
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void UpdatePlan(PlanDtoModel planModel)
+        {
+            var plan = (Plan)GetPlanById(planModel.IdPlan);
+
+            plan.Nombre = planModel.Nombre;
+            plan.Descripcion = planModel.Descripcion;
+            plan.Duracion = planModel.Duracion;
+            plan.MontoCuota = planModel.MontoCuota;
+            plan.Periodicidad = planModel.Periodicidad;
+            plan.FechaInicial = planModel.FechaInicial;
+            plan.FechaFinal = planModel.FechaFinal;
+        
+            _savingsDataContext.SubmitChanges();
+
+        }
+        public void DeletePlan(Plan plan)
+        {
+            _savingsDataContext.Plan.DeleteOnSubmit(plan);
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SavingsManager.Data;
 using SavingsManager.Factory;
+using SavingsManager.Models.DTOModels;
+using WebGrease.Css.Extensions;
 
 namespace SavingsManager.Providers
 {
@@ -10,7 +13,7 @@ namespace SavingsManager.Providers
 
         public int IdPlan { get; set; }
         public string Nombre { get; set; }
-        public string Description { get; set; }
+        public string Descripcion { get; set; }
         public int Duracion { get; set; }
         public char Periodicidad { get; set; }
         public double MontoCuota { get; set; }
@@ -27,27 +30,57 @@ namespace SavingsManager.Providers
 
         public IEnumerable<object> GetAllObjects()
         {
-            throw new NotImplementedException();
+            var planes = (IEnumerable<Plan>)SavingsDataRepository.GetAllPlanes().ToList();
+
+            var planDtoModelList = new List<PlanDtoModel>();
+
+            planes.ForEach(plan => planDtoModelList.Add(new PlanDtoModel
+            {
+                IdPlan = plan.IdPlan,
+                Nombre = plan.Nombre,
+                Descripcion = plan.Descripcion,
+                Duracion = plan.Duracion,
+                Periodicidad = plan.Periodicidad,
+                MontoCuota = plan.MontoCuota,
+                FechaInicial = plan.FechaInicial,
+                FechaFinal = plan.FechaFinal
+            }));
+
+            return planDtoModelList;
         }
 
         public object GetObjectById(int id)
         {
-            throw new NotImplementedException();
+            return SavingsDataRepository.GetPlanById(id);
         }
 
         public void AddObject(object item)
         {
-            throw new NotImplementedException();
+            var PlanModel = (PlanDtoModel)item;
+            var plan = new Plan
+            {
+                IdPlan = PlanModel.IdPlan,
+                Nombre = PlanModel.Nombre,
+                Descripcion = PlanModel.Descripcion,
+                Duracion = PlanModel.Duracion,
+                Periodicidad = PlanModel.Periodicidad,
+                MontoCuota = PlanModel.MontoCuota,
+                FechaInicial = PlanModel.FechaInicial,
+                FechaFinal = PlanModel.FechaFinal
+            };
+            SavingsDataRepository.AddPlan(plan);
         }
 
         public void UpdateObject(object item)
         {
-            throw new NotImplementedException();
+            var planModel = (PlanDtoModel)item;
+            SavingsDataRepository.UpdatePlan(planModel);
         }
 
         public void DeleteObject(object item)
         {
-            throw new NotImplementedException();
+            var plan = (Plan)item;
+            SavingsDataRepository.DeletePlan(plan);
         }
     }
 }

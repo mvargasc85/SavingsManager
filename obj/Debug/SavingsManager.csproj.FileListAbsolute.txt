@@ -99,104 +99,103 @@ C:\Users\danielb\Documents\GitHub\SavingsManager\bin\es\System.Web.WebPages.Razo
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.csproj.CoreCompileInputs.cache
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.dll
 C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.pdb
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\ApplicationInsights.config
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\csc.exe
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\vbc.exe
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\VBCSCompiler.exe
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\SavingsManager.dll.config
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\SavingsManager.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\SavingsManager.pdb
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Antlr3.Runtime.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\EntityFramework.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\EntityFramework.SqlServer.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.Web.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Facebook.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Google.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Twitter.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Newtonsoft.Json.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Owin.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Helpers.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Mvc.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Optimization.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Razor.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.Deployment.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.Razor.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\WebGrease.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Antlr3.Runtime.pdb
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\EntityFramework.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\EntityFramework.SqlServer.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.Web.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.ApplicationInsights.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Google.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Microsoft.Owin.Security.Twitter.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\Newtonsoft.Json.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Helpers.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Mvc.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Optimization.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.Razor.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.Deployment.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\System.Web.WebPages.Razor.xml
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\EntityFramework.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\EntityFramework.SqlServer.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Security.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Security.Google.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.Helpers.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.Mvc.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.Optimization.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.Razor.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.WebPages.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.WebPages.Deployment.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\obj\Debug\SavingsManager.dll
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\obj\Debug\SavingsManager.pdb
-C:\Users\Yusef Ruiz Morales\Source\Repos\SavingsManager\obj\Debug\SavingsManager.csprojResolveAssemblyReference.cache
+D:\SavingsManager-master\bin\ApplicationInsights.config
+D:\SavingsManager-master\bin\roslyn\csc.exe
+D:\SavingsManager-master\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SavingsManager-master\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SavingsManager-master\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SavingsManager-master\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SavingsManager-master\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SavingsManager-master\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SavingsManager-master\bin\roslyn\System.Collections.Immutable.dll
+D:\SavingsManager-master\bin\roslyn\System.Reflection.Metadata.dll
+D:\SavingsManager-master\bin\roslyn\vbc.exe
+D:\SavingsManager-master\bin\roslyn\VBCSCompiler.exe
+D:\SavingsManager-master\bin\roslyn\VBCSCompiler.exe.config
+D:\SavingsManager-master\bin\SavingsManager.dll.config
+D:\SavingsManager-master\bin\SavingsManager.dll
+D:\SavingsManager-master\bin\SavingsManager.pdb
+D:\SavingsManager-master\bin\Antlr3.Runtime.dll
+D:\SavingsManager-master\bin\EntityFramework.dll
+D:\SavingsManager-master\bin\EntityFramework.SqlServer.dll
+D:\SavingsManager-master\bin\Microsoft.AI.Agent.Intercept.dll
+D:\SavingsManager-master\bin\Microsoft.AI.DependencyCollector.dll
+D:\SavingsManager-master\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\SavingsManager-master\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\SavingsManager-master\bin\Microsoft.AI.Web.dll
+D:\SavingsManager-master\bin\Microsoft.AI.WindowsServer.dll
+D:\SavingsManager-master\bin\Microsoft.ApplicationInsights.dll
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SavingsManager-master\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Google.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SavingsManager-master\bin\Microsoft.Web.Infrastructure.dll
+D:\SavingsManager-master\bin\Newtonsoft.Json.dll
+D:\SavingsManager-master\bin\Owin.dll
+D:\SavingsManager-master\bin\System.Web.Helpers.dll
+D:\SavingsManager-master\bin\System.Web.Mvc.dll
+D:\SavingsManager-master\bin\System.Web.Optimization.dll
+D:\SavingsManager-master\bin\System.Web.Razor.dll
+D:\SavingsManager-master\bin\System.Web.WebPages.Deployment.dll
+D:\SavingsManager-master\bin\System.Web.WebPages.dll
+D:\SavingsManager-master\bin\System.Web.WebPages.Razor.dll
+D:\SavingsManager-master\bin\WebGrease.dll
+D:\SavingsManager-master\bin\Antlr3.Runtime.pdb
+D:\SavingsManager-master\bin\EntityFramework.xml
+D:\SavingsManager-master\bin\EntityFramework.SqlServer.xml
+D:\SavingsManager-master\bin\Microsoft.AI.DependencyCollector.xml
+D:\SavingsManager-master\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\SavingsManager-master\bin\Microsoft.AI.Web.xml
+D:\SavingsManager-master\bin\Microsoft.AI.WindowsServer.xml
+D:\SavingsManager-master\bin\Microsoft.ApplicationInsights.xml
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SavingsManager-master\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SavingsManager-master\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Google.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SavingsManager-master\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SavingsManager-master\bin\Newtonsoft.Json.xml
+D:\SavingsManager-master\bin\System.Web.Helpers.xml
+D:\SavingsManager-master\bin\System.Web.Mvc.xml
+D:\SavingsManager-master\bin\System.Web.Optimization.xml
+D:\SavingsManager-master\bin\System.Web.Razor.xml
+D:\SavingsManager-master\bin\System.Web.WebPages.xml
+D:\SavingsManager-master\bin\System.Web.WebPages.Deployment.xml
+D:\SavingsManager-master\bin\System.Web.WebPages.Razor.xml
+D:\SavingsManager-master\bin\es\EntityFramework.resources.dll
+D:\SavingsManager-master\bin\es\EntityFramework.SqlServer.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Security.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Security.Facebook.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Security.Google.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+D:\SavingsManager-master\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.Helpers.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.Mvc.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.Optimization.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.Razor.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.WebPages.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\SavingsManager-master\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\SavingsManager-master\obj\Debug\SavingsManager.dll
+D:\SavingsManager-master\obj\Debug\SavingsManager.pdb

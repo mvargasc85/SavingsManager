@@ -1,0 +1,65 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model SavingsManager.Models.DTOModels.PlanDtoModel
+
+
+<br /><br />
+<br /><br />
+<fieldset style="width: 600px">
+    <legend>Editar Plan</legend>
+    <br /><br />
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IdPlan)
+        <table id="groupInfoTbl">
+            <tr>
+                <td style="width: 200px;"><label>Nombre:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Nombre, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Nombre)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Descripcion:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Descripcion, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Descripcion)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Duracion:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Duracion, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Duracion)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Periodicidad:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Periodicidad, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Periodicidad)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>MontoCuota:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.MontoCuota, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.MontoCuota)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>FechaInicial:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.FechaInicial, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.FechaInicial)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>FechaFinal:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.FechaFinal, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.FechaFinal)</td>
+            </tr>
+            <tr><td colspan="2"></td>
+            </tr>
+        </table>
+        <br /><br />
+        <div id="bottonsDiv" style="width: 600px; margin-right: 5px">
+            <input type="submit" value="Modificar" class="k-button" style="width: 186px" />
+            @Html.ActionLink("Cancelar", "VerPlanes", null, new { @class = "k-button", @style = "width:186px" })
+        </div>
+    }
+</fieldset>
+<br /><br />
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/planes")
+
+

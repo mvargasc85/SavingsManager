@@ -226,6 +226,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\PlanController .cs" />
     <Compile Include="Controllers\SocioController.cs" />
     <Compile Include="Factory\ISavingsProvider.cs" />
     <Compile Include="Factory\SavingsProviderFactory.cs" />
@@ -242,6 +243,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DTOModels\PlanDtoModel.cs" />
     <Compile Include="Models\DTOModels\SocioDtoModel.cs" />
     <Compile Include="Models\DTOModels\GroupDtoModel.cs" />
     <Compile Include="Providers\SocioProvider.cs" />
@@ -321,6 +323,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\editGroup.js" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\editPlan.js" />
     <Content Include="Scripts\editSocio.js" />
     <Content Include="Scripts\grupo.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -335,9 +338,12 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\savings.js" />
+    <Content Include="Scripts\plan.js" />
     <Content Include="Scripts\socio.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -378,6 +384,9 @@
     <Content Include="Views\Socio\NuevoSocio.cshtml" />
     <Content Include="Views\Socio\VerSocios.cshtml" />
     <Content Include="Views\Socio\EditarSocio.cshtml" />
+    <Content Include="Views\Plan\VerPlanes.cshtml" />
+    <Content Include="Views\Plan\NuevoPlan.cshtml" />
+    <Content Include="Views\Plan\EditarPlan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
