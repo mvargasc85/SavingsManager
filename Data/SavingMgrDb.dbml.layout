@@ -60,7 +60,7 @@
         <elementListCompartment Id="687e6db8-7aaa-4907-bcfc-0180a2825d15" absoluteBounds="0.76500000000000012, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.28929768880208); (3.5 : 1.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.28929768880208); (3.5 : 1.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SavingMgrDbDataContext/Grupo/Grupo_Socio" />
       <nodes>
         <classShapeMoniker Id="8118279a-d2f1-40e3-a527-a4320450c62d" />
