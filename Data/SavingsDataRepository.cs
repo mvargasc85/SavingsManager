@@ -70,7 +70,6 @@ namespace SavingsManager.Data
             }
         }
         
-
        
         #endregion
 
@@ -132,7 +131,7 @@ namespace SavingsManager.Data
 
         #endregion
 
-         #region Plan Methods
+        #region Plan Methods
 
         public Plan GetPlanById(int id)
         {
@@ -179,6 +178,64 @@ namespace SavingsManager.Data
         public void DeletePlan(Plan plan)
         {
             _savingsDataContext.Plan.DeleteOnSubmit(plan);
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Ahorro Methods
+
+        public Ahorro GetAhorroById(int id)
+        {
+            var ahorro = _savingsDataContext.Ahorro.SingleOrDefault(a => a.idpago == id);
+            return ahorro;
+        }
+
+        public IEnumerable<Ahorro> GetAllAhorros()
+        {
+            var ahorros = _savingsDataContext.Ahorro.Select(a => a);
+            return ahorros;
+        }
+
+        public void AddAhorro(Ahorro ahorro)
+        {
+            _savingsDataContext.Ahorro.InsertOnSubmit(ahorro);
+
+            try
+            {
+                _savingsDataContext.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void UpdateAhorro(AhorroDtoModel ahorroModel)
+        {
+            var ahorro = (Ahorro)GetAhorroById(ahorroModel.idpago);
+
+            ahorro.IdPlan = ahorroModel.IdPlan;
+            ahorro.IdSocio = ahorroModel.IdSocio;
+            ahorro.Fecha = ahorroModel.Fecha;
+            ahorro.MontoCuota = ahorroModel.MontoCuota;
+            ahorro.Estado = ahorroModel.Estado;
+
+            _savingsDataContext.SubmitChanges();
+
+        }
+        public void DeleteAhorro(Ahorro ahorro)
+        {
+            _savingsDataContext.Ahorro.DeleteOnSubmit(ahorro);
             try
             {
                 _savingsDataContext.SubmitChanges();

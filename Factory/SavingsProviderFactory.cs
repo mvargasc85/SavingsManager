@@ -14,6 +14,8 @@ namespace SavingsManager.Factory
                     return new SocioProvider();
                 case "Plan":
                     return new PlanProvider();
+                case "Ahorro":
+                    return new AhorroProvider();
                 default:
                     return null;
             }
