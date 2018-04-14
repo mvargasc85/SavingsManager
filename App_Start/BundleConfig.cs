@@ -41,8 +41,10 @@ namespace SavingsManager
                 "~/Scripts/grupo.js"));
             bundles.Add(new ScriptBundle("~/bundles/socios").Include(
                 "~/Scripts/socio.js"));
-            bundles.Add(new ScriptBundle("~/bundles/planes").Include(
+            bundles.Add(new ScriptBundle("~/bundles/planes").Include
                "~/Scripts/plan.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ahorros").Include(
+                "~/Scripts/ahorro.js"));
         }
     }
 }
