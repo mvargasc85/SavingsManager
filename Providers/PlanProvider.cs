@@ -28,6 +28,11 @@ namespace SavingsManager.Providers
             SavingsDataRepository = new SavingsDataRepository();
         }
 
+        public PlanProvider(SavingsDataRepository savingsDataRepository)
+        {
+            SavingsDataRepository = savingsDataRepository;
+        }
+
 
         public IEnumerable<object> GetAllObjects()
         {

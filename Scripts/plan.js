@@ -110,8 +110,8 @@ function createPlanesGrid(divId, items) {
             { field: "Duracion", title: "Duracion Duracion", width: "50px" },
             { field: "Periodicidad", title: "Periodicidad", width: "50px" },
             { field: "MontoCuota", title: "Monto Cuota", width: "50px" },
-            { field: "FechaInicial", title: "Fecha Inicial", width: "50px" },
-            { field: "FechaFinal", title: "Fecha Final", width: "50px" },
+            { field: "FechaInicial", title: "Fecha Inicial", width: "50px", format: "{0: dd/MM/yyyy}"  },
+            { field: "FechaFinal", title: "Fecha Final", width: "50px" , format: "{0: dd/MM/yyyy}" },
             {
                 template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="EditPlan(${IdPlan})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
                 '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeletePlan(${IdPlan})">Eliminar</a>',

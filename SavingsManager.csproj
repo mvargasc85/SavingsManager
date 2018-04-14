@@ -382,7 +382,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Group\Grupos.cshtml" />
     <Content Include="Views\Group\NuevoGrupo.cshtml" />
     <Content Include="Views\Group\VerGrupos.cshtml" />
     <Content Include="Views\Group\EditarGrupo.cshtml" />

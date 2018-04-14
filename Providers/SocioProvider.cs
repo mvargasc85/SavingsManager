@@ -26,6 +26,10 @@ namespace SavingsManager.Providers
             SavingsDataRepository = new SavingsDataRepository();
         }
 
+        public SocioProvider(SavingsDataRepository savingsDataRepository)
+        {
+            SavingsDataRepository = savingsDataRepository;
+        }
 
         public IEnumerable<object> GetAllObjects()
         {

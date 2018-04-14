@@ -147,7 +147,7 @@ function createAhorrosGrid(divId, items) {
         columns: [
             { field: "IdPlan", title: "Plan", width: "20px" },
             { field: "IdSocio", title: "Socio", width: "20px" },
-            { field: "Fecha", title: "Fecha", width: "20px" },
+            { field: "Fecha", title: "Fecha", width: "20px", format: "{0: dd/MM/yyyy}" },
             { field: "MontoCuota", title: "Monto Cuota", width: "30px" },
             { field: "Estado", title: "Estado", width: "10px" },
             {

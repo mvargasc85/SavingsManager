@@ -19,10 +19,7 @@ namespace SavingsManager.Controllers
             _groupProvider = SavingsProviderFactory.CreateSavingsModelObject("Grupo");
         }
 
-        public ActionResult Grupos()
-        {
-            return View();
-        }
+        
 
         public ActionResult NuevoGrupo()
         {

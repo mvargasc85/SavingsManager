@@ -1,11 +1,15 @@
-﻿using SavingsManager.Providers;
+﻿using SavingsManager.Data;
+using SavingsManager.Providers;
 
 namespace SavingsManager.Factory
 {
     public class SavingsProviderFactory
     {
+        SavingsDataRepository savingsDataRepository = new SavingsDataRepository();
+
         public static ISavingsProvider CreateSavingsModelObject(string type)
         {
+            
             switch (type)
             {
                 case "Grupo":
