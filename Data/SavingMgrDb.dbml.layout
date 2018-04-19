@@ -67,5 +67,11 @@
         <classShapeMoniker Id="d0923871-e104-49db-8cb2-f26ce2f6a9e3" />
       </nodes>
     </associationConnector>
+    <classShape Id="c9aef904-8ac7-400f-96a4-7f874a945900" absoluteBounds="6.5, 3.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/SavingMgrDbDataContext/LoginSavingManager" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b3b0097-b73b-482a-8e50-eddad63442d2" absoluteBounds="6.515, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

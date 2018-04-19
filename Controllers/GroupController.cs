@@ -26,7 +26,15 @@ namespace SavingsManager.Controllers
 
         public ActionResult NuevoGrupo()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
@@ -47,7 +55,15 @@ namespace SavingsManager.Controllers
 
         public ActionResult VerGrupos()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 

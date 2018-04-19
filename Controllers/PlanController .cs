@@ -45,11 +45,27 @@ namespace SavingsManager.Controllers
         }
         public ActionResult NuevoPlan()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult VerPlanes()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         public ActionResult CrearPlan(PlanDtoModel planModel)

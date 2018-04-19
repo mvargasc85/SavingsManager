@@ -17,7 +17,9 @@ namespace SavingsManager.Controllers
 
         public AhorroController()
         {
-            _ahorroProvider = SavingsProviderFactory.CreateSavingsModelObject("Ahorro");
+
+                _ahorroProvider = SavingsProviderFactory.CreateSavingsModelObject("Ahorro");
+
         }
 
         public ActionResult Index()
@@ -45,11 +47,27 @@ namespace SavingsManager.Controllers
         }
         public ActionResult NuevoAhorro()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult VerAhorros()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         public ActionResult CrearAhorro(AhorroDtoModel ahorroModel)

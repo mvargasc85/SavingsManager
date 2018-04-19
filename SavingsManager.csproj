@@ -225,6 +225,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SessionManagement.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\PlanController .cs" />
     <Compile Include="Controllers\AhorroController.cs" />
@@ -395,6 +396,7 @@
     <Content Include="Views\Ahorro\VerAhorros.cshtml" />
     <Content Include="Views\Ahorro\NuevoAhorro.cshtml" />
     <Content Include="Views\Ahorro\EditarAhorro.cshtml" />
+    <Content Include="Views\Home\IniciarSession.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

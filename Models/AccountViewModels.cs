@@ -58,8 +58,8 @@ namespace SavingsManager.Models
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
-        [Display(Name = "¿Recordar cuenta?")]
-        public bool RememberMe { get; set; }
+        //[Display(Name = "¿Recordar cuenta?")]
+        //public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
