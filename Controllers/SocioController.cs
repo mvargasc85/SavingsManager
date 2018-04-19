@@ -45,11 +45,27 @@ namespace SavingsManager.Controllers
         }
         public ActionResult NuevoSocio()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult VerSocios()
         {
-            return View();
+            AccountController account = new AccountController();
+            if (Session["SessionIniciada"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpPost]
         public ActionResult CrearSocio(SocioDtoModel socioModel)
