@@ -14,6 +14,7 @@ namespace SavingsManager.Controllers
 
         public ActionResult Index()
         {
+
             return View();
         }
 
