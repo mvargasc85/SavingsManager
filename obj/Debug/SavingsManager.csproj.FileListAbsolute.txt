@@ -199,3 +199,4 @@ D:\SavingsManager-master\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\SavingsManager-master\bin\es\System.Web.WebPages.Razor.resources.dll
 D:\SavingsManager-master\obj\Debug\SavingsManager.dll
 D:\SavingsManager-master\obj\Debug\SavingsManager.pdb
+C:\Users\danielb\Documents\GitHub\SavingsManager\obj\Debug\SavingsManager.csprojResolveAssemblyReference.cache

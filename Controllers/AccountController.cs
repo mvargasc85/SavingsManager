@@ -472,7 +472,7 @@ namespace SavingsManager.Controllers
                     if (usuarioEncontrado != null)
                     {
                         usuarioValido = true;
-                        Session["SessionIniciada"] = usuarioValido;
+                        Session["SessionIniciada"] = correo;
                     }
                     else
                     {
