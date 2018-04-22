@@ -59,8 +59,6 @@ function showGroupsGrid(result) {
     if (result !== "") {
         createGroupsGrid("groupsGrid", result);
         $("#groupsDiv").show();
-        //var url = "/Group/VerGrupos";
-        //window.location.href = url;
     } else
         $("#groupsDiv").hide();
 

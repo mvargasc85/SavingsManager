@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using SavingsManager.Data;
 using SavingsManager.Factory;
 using SavingsManager.Models.DTOModels;
@@ -25,6 +26,11 @@ namespace SavingsManager.Providers
         public PlanProvider()
         {
             SavingsDataRepository = new SavingsDataRepository();
+        }
+
+        public PlanProvider(SavingsDataRepository savingsDataRepository)
+        {
+            SavingsDataRepository = savingsDataRepository;
         }
 
 
@@ -82,5 +88,22 @@ namespace SavingsManager.Providers
             var plan = (Plan)item;
             SavingsDataRepository.DeletePlan(plan);
         }
+
+        public IEnumerable<SelectListItem> GetPlanSelectList()
+        {
+            var planes = (IEnumerable<PlanDtoModel>)GetAllObjects();
+            var planesSelectList = new List<SelectListItem>();
+            foreach (var planesDtoModel in planes)
+            {
+                planesSelectList.Add(new SelectListItem
+                {
+                    Text = planesDtoModel.Nombre,
+                    Value = planesDtoModel.IdPlan.ToString()
+                });
+            }
+
+            return planesSelectList;
+        }
+        
     }
 }

@@ -19,6 +19,11 @@ namespace SavingsManager.Providers
             SavingsDataRepository = new SavingsDataRepository();
         }
 
+        public GroupProvider(SavingsDataRepository savingsDataRepository)
+        {
+            SavingsDataRepository = savingsDataRepository;
+        }
+
         public IEnumerable<object> GetAllObjects()
         {
             var groups = (IEnumerable<Grupo>) SavingsDataRepository.GetAllGroups().ToList();

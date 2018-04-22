@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -17,12 +20,13 @@ namespace SavingsManager.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public Boolean sessionvalid;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +38,9 @@ namespace SavingsManager.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -51,7 +55,17 @@ namespace SavingsManager.Controllers
                 _userManager = value;
             }
         }
-
+        public Boolean Sessionvalid
+        {
+            get
+            {
+                return sessionvalid;
+            }
+            set
+            {
+                sessionvalid = value;
+            }
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -75,20 +89,30 @@ namespace SavingsManager.Controllers
 
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = ValidarUsuario(model.Email, model.Password);
+            if (result)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
-                    return View(model);
+                return RedirectToLocal(returnUrl);
             }
+            else
+            {
+                ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
+                return View(model);
+            }
+            //switch (result)
+            //{
+            //    case SignInStatus.Success:
+            //        return RedirectToLocal(returnUrl);
+            //    case SignInStatus.LockedOut:
+            //        return View("Lockout");
+            //    case SignInStatus.RequiresVerification:
+            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+            //    case SignInStatus.Failure:
+            //    default:
+            //        ModelState.AddModelError("", "Intento de inicio de sesión no válido.");
+            //        return View(model);
+            //}
         }
 
         //
@@ -120,7 +144,7 @@ namespace SavingsManager.Controllers
             // Si un usuario introduce códigos incorrectos durante un intervalo especificado de tiempo, la cuenta del usuario 
             // se bloqueará durante un período de tiempo especificado. 
             // Puede configurar el bloqueo de la cuenta en IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -155,8 +179,8 @@ namespace SavingsManager.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // Para obtener más información sobre cómo habilitar la confirmación de cuenta y el restablecimiento de contraseña, visite http://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -225,6 +249,12 @@ namespace SavingsManager.Controllers
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult IniciarSession()
         {
             return View();
         }
@@ -422,7 +452,42 @@ namespace SavingsManager.Controllers
 
             base.Dispose(disposing);
         }
+        protected bool ValidarUsuario(string correo, string password)
+        {
+            bool usuarioValido = false;
+            string commandText = "Select IdUsuario, Correo, Password FROM[dbo].[LoginSavingManager] Where Correo = @correo and Password = @password;";
 
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SavingsManagerDBConnectionString"].ToString()))
+            {
+                SqlCommand command = new SqlCommand(commandText, connection);
+
+                command.Parameters.AddWithValue("@correo", correo);
+                command.Parameters.AddWithValue("@password", password);
+
+                try
+                {
+                    connection.Open();
+                    Object usuarioEncontrado = command.ExecuteScalar();
+
+                    if (usuarioEncontrado != null)
+                    {
+                        usuarioValido = true;
+                        Session["SessionIniciada"] = correo;
+                    }
+                    else
+                    {
+                        usuarioValido = false;
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    string msg = sqlEx.Message;
+                    return usuarioValido;
+                }
+                return usuarioValido;
+            }
+
+        }
         #region Aplicaciones auxiliares
         // Se usa para la protección XSRF al agregar inicios de sesión externos
         private const string XsrfKey = "XsrfId";

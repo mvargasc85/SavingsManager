@@ -1,11 +1,9 @@
 ﻿$(document).ready(function () {
-   
+ 
     $("#AddSocioBtn").on("click", saveSocio);
     $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
     getAllSocios();
     getGroupDropDownList();
-
-   
 });
 
 

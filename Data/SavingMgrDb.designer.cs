@@ -116,6 +116,14 @@ namespace SavingsManager.Data
 				return this.GetTable<Grupo>();
 			}
 		}
+		
+		public System.Data.Linq.Table<LoginSavingManager> LoginSavingManagers
+		{
+			get
+			{
+				return this.GetTable<LoginSavingManager>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ahorro")]
@@ -1274,6 +1282,69 @@ namespace SavingsManager.Data
 		{
 			this.SendPropertyChanging();
 			entity.Grupo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoginSavingManager")]
+	public partial class LoginSavingManager
+	{
+		
+		private long _IdUsuario;
+		
+		private string _Correo;
+		
+		private string _Password;
+		
+		public LoginSavingManager()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="BigInt NOT NULL")]
+		public long IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this._Password = value;
+				}
+			}
 		}
 	}
 }

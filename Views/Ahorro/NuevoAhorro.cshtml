@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br />
+<br /><br />
+<fieldset style="width: 400px">
+    <legend>Nuevo Ahorro</legend>
+    <br /><br />
+          <table id="ahorroInfoTbl">
+              <tr>
+                  <td style="width: 200px;"><label>Plan:</label></td>
+                  <td style="width: 200px;">
+                      <select id="planDropDown">
+                          <option>---Selecione el plan---</option>
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td style="width: 200px;"><label>Socio:</label></td>
+                  <td style="width: 200px;">
+                      <select id="socioDropDown">
+                          <option>---Selecione el socio---</option>
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td style="width: 200px;"><label>Fecha:</label></td>
+                  <td style="width: 200px;"><input id="fechaTxt" /></td>
+              </tr>
+              <tr>
+                  <td style="width: 200px;"><label>Monto Cuota:</label></td>
+                  <td style="width: 200px;"><input id="montoCuotaTxt" /></td>
+              </tr>
+              <tr>
+                  <td style="width: 200px;"><label>Estado:</label></td>
+                  <td style="width: 200px;"><input id="montoCuotaTxt" /></td>
+              </tr>
+              <tr><td colspan="2"></td></tr>
+              <tr><td colspan="2"></td></tr>
+          </table>
+</fieldset>
+<br /><br />
+
+<div id="bottonsDiv" style="width: 400px; margin-right: 5px">
+    <input id="AddAhorroBtn" class="k-button" value="Guardar" />
+    <input id="cancelAddingAhorroBtn" class="k-button" value="Cancelar" />
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/ahorros")

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SavingsManagerDB" Class="SavingMgrDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-N6P4OH0\SQLEXPRESS;Initial Catalog=SavingsManagerDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SavingsManagerDBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(local);Initial Catalog=SavingsManagerDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SavingsManagerDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Ahorro" Member="Ahorro">
     <Type Name="Ahorro">
       <Column Name="idpago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -54,6 +54,13 @@
       <Column Name="Fecha_Creacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Grupo_Socio" Member="Socio" ThisKey="IdGrupo" OtherKey="IdGrupo" Type="Socio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoginSavingManager" Member="LoginSavingManagers">
+    <Type Name="LoginSavingManager">
+      <Column Name="IdUsuario" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

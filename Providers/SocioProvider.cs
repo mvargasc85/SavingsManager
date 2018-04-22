@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using SavingsManager.Data;
 using SavingsManager.Factory;
 using SavingsManager.Models.DTOModels;
@@ -25,6 +26,10 @@ namespace SavingsManager.Providers
             SavingsDataRepository = new SavingsDataRepository();
         }
 
+        public SocioProvider(SavingsDataRepository savingsDataRepository)
+        {
+            SavingsDataRepository = savingsDataRepository;
+        }
 
         public IEnumerable<object> GetAllObjects()
         {
@@ -74,6 +79,22 @@ namespace SavingsManager.Providers
         {
             var socio = (Socio)item;
             SavingsDataRepository.DeleteSocio(socio);
+        }
+
+        public IEnumerable<SelectListItem> GetSocioSelectList()
+        {
+            var socios = (IEnumerable<SocioDtoModel>)GetAllObjects();
+            var sociosSelectList = new List<SelectListItem>();
+            foreach (var sociosDtoModel in socios)
+            {
+                sociosSelectList.Add(new SelectListItem
+                {
+                    Text = sociosDtoModel.Nombre,
+                    Value = sociosDtoModel.IdSocio.ToString()
+                });
+            }
+
+            return sociosSelectList;
         }
     }
 }

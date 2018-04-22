@@ -1,0 +1,58 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model SavingsManager.Models.DTOModels.AhorroDtoModel
+
+
+<br /><br />
+<br /><br />
+<fieldset style="width: 600px">
+    <legend>Editar Ahorro</legend>
+    <br /><br />
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idpago)
+        @*@Html.HiddenFor(model => model.IdGrupo)*@
+        <table id="groupInfoTbl">
+            <tr>
+                <td style="width: 200px;"><label>Plan:</label></td>
+                <td style="width: 200px;">
+                    @Html.DropDownListFor(model => model.IdPlan, Model.Planes, "Seleccione Plan")
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Socio:</label></td>
+                <td style="width: 200px;">
+                    @Html.DropDownListFor(model => model.IdSocio, Model.Socios, "Seleccione Socio")
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Fecha:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Fecha, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Fecha)</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Monto Cuota:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.MontoCuota, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.MontoCuota)</td>                             
+            </tr>
+            <tr>
+                <td style="width: 200px;"><label>Estado:</label></td>
+                <td style="width: 200px;">@Html.EditorFor(model => model.Estado, new { @class = "k-textbox", required = "required" })</td>
+                <td style="width: 200px;">@Html.ValidationMessageFor(model => model.Estado)</td>
+            </tr>
+            <tr><td colspan="2"></td></tr>
+            <tr><td colspan="2"></td></tr>
+        </table>
+        <br /><br />
+        <div id="bottonsDiv" style="width: 600px; margin-right: 5px">
+            <input type="submit" value="Modificar" class="k-button" style="width: 186px" />
+            @Html.ActionLink("Cancelar", "VerAhorros", null, new { @class = "k-button", @style = "width:186px" })
+        </div>
+    }
+</fieldset>
+<br /><br />
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/ahorros")
+
+
