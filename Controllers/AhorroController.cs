@@ -18,7 +18,7 @@ namespace SavingsManager.Controllers
         public AhorroController()
         {
 
-                _ahorroProvider = SavingsProviderFactory.CreateSavingsModelObject("Ahorro");
+                _ahorroProvider = SavingsProviderFactory.Instance.CreateSavingsModelObject("Ahorro");
 
         }
 

@@ -17,7 +17,7 @@ namespace SavingsManager.Controllers
 
         public PlanController()
         {
-            _planProvider = SavingsProviderFactory.CreateSavingsModelObject("Plan");
+            _planProvider = SavingsProviderFactory.Instance.CreateSavingsModelObject("Plan");
         }
 
         public ActionResult Index()

@@ -9,6 +9,10 @@ using WebGrease.Css.Extensions;
 
 namespace SavingsManager.Providers
 {
+    /// <summary>
+    /// this class is used to data transformation between the datarepository and the controller and viceversa
+    /// implememts dependency injection pattern
+    /// </summary>
     public class GroupProvider : ISavingsProvider
     {
 
@@ -19,6 +23,10 @@ namespace SavingsManager.Providers
             SavingsDataRepository = new SavingsDataRepository();
         }
 
+        /// <summary>
+        /// Constructor to implement dependency injection pattern
+        /// </summary>
+        /// <param name="savingsDataRepository"> receives a reference of savingsDataRepository</param>
         public GroupProvider(SavingsDataRepository savingsDataRepository)
         {
             SavingsDataRepository = savingsDataRepository;

@@ -9,7 +9,7 @@ namespace SavingsManager.Controllers
 
         public HomeController()
         {
-            _planProvider = SavingsProviderFactory.CreateSavingsModelObject("Plan");
+            _planProvider = SavingsProviderFactory.Instance.CreateSavingsModelObject("Plan");
         }
 
         public ActionResult Index()

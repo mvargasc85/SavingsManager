@@ -16,7 +16,7 @@ namespace SavingsManager.Controllers
 
         public GroupController()
         {
-            _groupProvider = SavingsProviderFactory.CreateSavingsModelObject("Grupo");
+            _groupProvider = SavingsProviderFactory.Instance.CreateSavingsModelObject("Grupo");
         }
 
         

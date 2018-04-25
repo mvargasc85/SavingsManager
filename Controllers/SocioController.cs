@@ -17,7 +17,7 @@ namespace SavingsManager.Controllers
 
         public SocioController()
         {
-            _socioProvider = SavingsProviderFactory.CreateSavingsModelObject("Socio");
+            _socioProvider = SavingsProviderFactory.Instance.CreateSavingsModelObject("Socio");
         }
 
         public ActionResult Index()
