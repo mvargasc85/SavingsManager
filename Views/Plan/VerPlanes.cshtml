@@ -2,18 +2,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<fieldset>
+    <legend>Listado de Planes</legend>
+    <br /><br />
+    
+    <div id="planesDiv">
+        <div id="planesGrid"></div>
+    </div>
 
-<h2>Listado de Planes</h2>
+</fieldset>
 
-<br /><br />
-<br /><br />
-
-<div id="planesDiv">
-    <div id="planesGrid"></div>
-</div>
-
-<div id="delete-plan-dialog-confirm" title="Eliminar Plan" style="display: none">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Está seguro que desea eliminar este plan?</p>
-</div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/planes")
+    <div id="delete-plan-dialog-confirm" title="Eliminar Plan" style="display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Está seguro que desea eliminar este plan?</p>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/planes")*@

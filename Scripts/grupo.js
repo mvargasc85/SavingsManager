@@ -1,11 +1,8 @@
-﻿$(document).ready(function () {
-    $("#AddGroupBtn").on("click", saveGroup);
-    $("#cancelAddingGroupBtn").on("click", cancelAddingGroup);
-    getAllGroups();
-});
+﻿
+$(document).ready(function () {});
 
 //groups methods
-function saveGroup() {
+var saveGroup = function () {
 
     var groupModel = getGroupModel();
     $.ajax({
@@ -31,12 +28,12 @@ function getGroupModel() {
     return groupModel;
 }
 
-function cancelAddingGroup() {
+var cancelAddingGroup = function () {
     $("#groupNameTxt").val("");
     $("#groupDescriptionTxt").val("");
 }
 
-function getAllGroups() {
+var getAllGroups = function () {
     $.ajax({
         type: "get",
         url: "/Group/GetGrupos",
@@ -52,8 +49,6 @@ function getAllGroups() {
     });
 }
 
-
-
 function showGroupsGrid(result) {
 
     if (result !== "") {
@@ -63,7 +58,6 @@ function showGroupsGrid(result) {
         $("#groupsDiv").hide();
 
 }
-
 
 function createGroupsGrid(divId, items) {
     $("#" + divId).kendoGrid({
@@ -100,7 +94,6 @@ function createGroupsGrid(divId, items) {
         ]
     });
 }
-
 
 function EditGroup(idGrupo) {
     var url = "/Group/EditarGrupo?idGrupo=" + idGrupo;
@@ -149,4 +142,36 @@ function updateGroup() {
         },
         error: function (e) { display(e); }
     });
+}
+
+var getGroupDropDownList = function () {
+      var grupoId = $("#grupoDropDown").val();
+    $.ajax({
+        url: "/Group/GetGrupos",
+        type: "get",
+        datatype: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            CreateDropDownlist("grupoDropDown", $.parseJSON(result), "Nombre", "IdGrupo", null, "Seleccione ...", null);
+
+        },
+        error: function () { alert("Problema al cargar los grupos") }
+    });
+}
+
+var Group = function () { }
+
+Group.prototype = {
+    initializeBtns: function () {
+        $("#AddGroupBtn").on("click", saveGroup);
+        $("#cancelAddingGroupBtn").on("click", cancelAddingGroup);
+    },
+
+    loadGroupGrid: function () {
+        getAllGroups();
+    },
+
+    loadGroupDropDownList: function () {
+        getGroupDropDownList();
+    }
 }

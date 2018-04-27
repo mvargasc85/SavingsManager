@@ -2,18 +2,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<fieldset>
+    <legend>Listado de Socios</legend>
+    <br /><br />
+    
+    <div id="sociosDiv">
+        <div id="sociosGrid"></div>
+    </div>
 
-<h2>Listado de Socios</h2>
+    <div id="delete-socio-dialog-confirm" title="Eliminar Socio" style="display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Está seguro que desea eliminar este socio?</p>
+    </div>
 
-<br /><br />
-<br /><br />
-
-<div id="sociosDiv">
-    <div id="sociosGrid"></div>
-</div>
-
-<div id="delete-socio-dialog-confirm" title="Eliminar Socio" style="display: none">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Está seguro que desea eliminar este socio?</p>
-</div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/socios")
+</fieldset>

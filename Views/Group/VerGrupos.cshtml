@@ -2,18 +2,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<fieldset>
+    <legend>Listado de Grupos</legend>
+    <br /><br />
 
-<h2>Listado de Grupos</h2>
-
-<br /><br />
-<br /><br />
-
-<div id="groupsDiv">
-    <div id="groupsGrid"></div>
-</div>
-
+    <div id="groupsDiv">
+        <div id="groupsGrid"></div>
+    </div>
+</fieldset>
 <div id="delete-group-dialog-confirm" title="Eliminar Grupo" style="display: none">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>¿Está seguro que desea eliminar este grupo?</p>
 </div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/groups")

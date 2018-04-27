@@ -1,9 +1,9 @@
 ﻿$(document).ready(function () {
    
-    $("#AddPlanBtn").on("click", savePlan);
-    $("#cancelAddingPlanBtn").on("click", cancelAddingPlan);
-    getAllPlanes();
-    getGroupDropDownList();
+    //$("#AddPlanBtn").on("click", savePlan);
+    //$("#cancelAddingPlanBtn").on("click", cancelAddingPlan);
+    //getAllPlanes();
+    //getGroupDropDownList();
 
    
 });
@@ -92,8 +92,8 @@ function createPlanesGrid(divId, items) {
                         Duracion: { type: "number" },
                         Periodicidad: { type: "string" },
                         MontoCuota: { type: "number" },
-                        FechaInicial: { type: "datetime" },
-                        FechaFinal: { type: "datetime" },
+                        FechaInicial: { type: "date" },
+                        FechaFinal: { type: "date" },
                     }
                 }
             },
@@ -105,13 +105,13 @@ function createPlanesGrid(divId, items) {
         sortable: true,
         filterable: true,
         columns: [
-            { field: "Nombre", title: "Nombre", width: "50px" },
-            { field: "Descripcion", title: "Descripcion", width: "50px" },
-            { field: "Duracion", title: "Duracion Duracion", width: "50px" },
-            { field: "Periodicidad", title: "Periodicidad", width: "50px" },
-            { field: "MontoCuota", title: "Monto Cuota", width: "50px" },
-            { field: "FechaInicial", title: "Fecha Inicial", width: "50px", format: "{0: dd/MM/yyyy}"  },
-            { field: "FechaFinal", title: "Fecha Final", width: "50px" , format: "{0: dd/MM/yyyy}" },
+            { field: "Nombre", title: "Nombre", width: "70px" },
+            { field: "Descripcion", title: "Descripcion", width: "70px" },
+            { field: "Duracion", title: "Duracion", width: "20px" },
+            { field: "Periodicidad", title: "Periodicidad", width: "20px" },
+            { field: "MontoCuota", title: "Monto Cuota", width: "40px" },
+            { field: "FechaInicial", title: "Fecha Inicial", width: "30px", format: "{0: dd/MM/yyyy}"  },
+            { field: "FechaFinal", title: "Fecha Final", width: "30px" , format: "{0: dd/MM/yyyy}" },
             {
                 template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="EditPlan(${IdPlan})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
                 '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeletePlan(${IdPlan})">Eliminar</a>',
@@ -125,6 +125,7 @@ function EditPlan(idPlan) {
     var url = "/plan/EditarPlan?idPlan=" + idPlan;
     window.location.href = url;
 }
+
 function ConfirmDeletePlan(idPlan) {
     $("#delete-plan-dialog-confirm").dialog({
         resizable: false,
@@ -156,23 +157,38 @@ function deletePlan(idPlan) {
 
 function display(e) { alert(e); }
 
+function getPlanDropDownList() {
+    debugger;
+    var socioId = $("#planDropDown").val();
+    $.ajax({
+        url: "/Plan/GetPlanes",
+        type: "get",
+        datatype: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            CreateDropDownlist("planDropDown", $.parseJSON(result), "Nombre", "IdPlan", null, "Seleccione ...", null);
 
-function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, selectPlaceHolder, dataBoundEvent) {
-
-    $("#" + divId).kendoDropDownList({
-        optionLabel: selectPlaceHolder,
-        dataTextField: text,
-        dataValueField: value,
-        dataSource: items,
-        index: 0,
-        change: onchanceEventHandler,
-        open: dataBoundEvent
+        },
+        error: function () { alert("Problema al cargar los planes") }
     });
+}
 
-    dropDownListObject(divId).select(0);
+var Plan = function () { }
+
+Plan.prototype = {
+    initializeBtns: function () {
+        $("#AddPlanBtn").on("click", savePlan);
+        $("#cancelAddingPlanBtn").on("click", cancelAddingPlan);
+    },
+
+    loadPlansGrid: function () {
+        getAllPlanes();
+    },
+
+    loadPlanDropDownList: function () {
+        getPlanDropDownList();
+    }
 }
 
 
-var dropDownListObject = (function (ddlId) {
-    return $('#' + ddlId).data("kendoDropDownList");
-});
+

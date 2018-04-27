@@ -1,9 +1,5 @@
 ﻿$(document).ready(function () {
  
-    $("#AddSocioBtn").on("click", saveSocio);
-    $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
-    getAllSocios();
-    getGroupDropDownList();
 });
 
 
@@ -47,21 +43,7 @@ function cancelAddingSocio() {
 }
 
 
-function getGroupDropDownList() {
-    debugger;
-    var grupoId = $("#grupoDropDown").val();
-    $.ajax({
-        url: "/Group/GetGrupos",
-        type: "get",
-        datatype: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            CreateDropDownlist("grupoDropDown", $.parseJSON(result), "Nombre", "IdGrupo", null, "Seleccione ...", null);
 
-        },
-        error: function () { alert("Problema al cargar los grupos") }
-    });
-}
 
 function showGroupsCombo(result) {
 
@@ -175,6 +157,33 @@ function deleteSocio(idSocio) {
 
 function display(e) { alert(e); }
 
+function getSocioDropDownList() {
+    debugger;
+    var socioId = $("#socioDropDown").val();
+    $.ajax({
+        url: "/Socio/GetSocios",
+        type: "get",
+        datatype: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            CreateDropDownlist("socioDropDown", $.parseJSON(result), "Nombre", "IdSocio", null, "Seleccione ...", null);
+
+        },
+        error: function () { alert("Problema al cargar los socios") }
+    });
+}
+
+
+
+function showSociosCombo(result) {
+
+    if (result !== "") {
+        createSociosGrid("sociosGrid", result);
+        $("#sociosDiv").show();
+    } else
+        $("#sociosDiv").hide();
+
+}
 
 function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, selectPlaceHolder, dataBoundEvent) {
 
@@ -188,10 +197,34 @@ function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, sel
         open: dataBoundEvent
     });
 
-    dropDownListObject(divId).select(0);
+    var ddl = dropDownListObject(divId);
+    if (ddl != null)
+        ddl.select(0);
 }
 
 
 var dropDownListObject = (function (ddlId) {
     return $('#' + ddlId).data("kendoDropDownList");
 });
+
+
+
+var Socio = function () { }
+
+Socio.prototype = {
+    initializeBtns: function () {
+        $("#AddSocioBtn").on("click", saveSocio);
+        $("#cancelAddingSocioBtn").on("click", cancelAddingSocio);
+    },
+
+    loadSociosGrid: function () {
+        getAllSocios();
+    },
+
+    loadSocioDropDownList: function () {
+        getSocioDropDownList();
+    }
+}
+
+
+

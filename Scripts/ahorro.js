@@ -1,10 +1,5 @@
 ﻿$(document).ready(function () {
    
-    $("#AddAhorroBtn").on("click", saveAhorro);
-    $("#cancelAddingAhorroBtn").on("click", cancelAddingAhorro);
-    getAllAhorros();
-    getSocioDropDownList();
-    getPlanDropDownList();
 
    
 });
@@ -47,50 +42,10 @@ function cancelAddingAhorro() {
     $("#montoCuotaTxt").val("");
 }
 
-function getPlanDropDownList() {
-    debugger;
-    var socioId = $("#planDropDown").val();
-    $.ajax({
-        url: "/Plan/GetPlanes",
-        type: "get",
-        datatype: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            CreateDropDownlist("planDropDown", $.parseJSON(result), "Nombre", "IdPlan", null, "Seleccione ...", null);
-
-        },
-        error: function () { alert("Problema al cargar los planes") }
-    });
-}
-
-
-function getSocioDropDownList() {
-    debugger;
-    var socioId = $("#socioDropDown").val();
-    $.ajax({
-        url: "/Socio/GetSocios",
-        type: "get",
-        datatype: "json",
-        contentType: "application/json; charset=utf-8",
-        success: function (result) {
-            CreateDropDownlist("socioDropDown", $.parseJSON(result), "Nombre", "IdSocio", null, "Seleccione ...", null);
-
-        },
-        error: function () { alert("Problema al cargar los socios") }
-    });
-}
 
 
 
-function showSociosCombo(result) {
 
-    if (result !== "") {
-        createSociosGrid("sociosGrid", result);
-        $("#sociosDiv").show();
-    } else
-        $("#sociosDiv").hide();
-
-}
 
 function getAllAhorros() {
     $.ajax({
@@ -195,22 +150,25 @@ function deleteAhorro(idpago) {
 function display(e) { alert(e); }
 
 
-function CreateDropDownlist(divId, items, text, value, onchanceEventHandler, selectPlaceHolder, dataBoundEvent) {
 
-    $("#" + divId).kendoDropDownList({
-        optionLabel: selectPlaceHolder,
-        dataTextField: text,
-        dataValueField: value,
-        dataSource: items,
-        index: 0,
-        change: onchanceEventHandler,
-        open: dataBoundEvent
-    });
 
-    dropDownListObject(divId).select(0);
+var Ahorro = function () { }
+
+Ahorro.prototype = {
+    initializeBtns: function () {
+        $("#AddAhorroBtn").on("click", saveAhorro);
+        $("#cancelAddingAhorroBtn").on("click", cancelAddingAhorro);
+
+    },
+
+    loadAhorrosGrid: function () {
+        getAllAhorros();
+    }
 }
 
 
-var dropDownListObject = (function (ddlId) {
-    return $('#' + ddlId).data("kendoDropDownList");
-});
+
+
+
+getSocioDropDownList();
+getPlanDropDownList();

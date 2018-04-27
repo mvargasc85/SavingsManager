@@ -1,98 +1,97 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
 
 
-</head>
+    </head>
 
-<body>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
 
 
+            <div class="container">
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            @*<div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Savings Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>*@
+                <div class="navbar-collapse collapse">
+                    <div style="text-align: right;">
+                        @*@if (@HttpContext.Current.Session["SessionIniciada"] != null)
+                    {
+                            <font size=2 color='##008000'>Sesión de usuario iniciada: @HttpContext.Current.Session["SessionIniciada"].ToString()</font>
+                    }
+                    else
+                    {
+                            <font size=2 color='#FF0000'>No puede acceder a la aplicación si no a iniciado sesión</font>
+                    }*@
+                    </div>
+                    @Html.Partial("_LoginPartial")
+                    <ul id="Menu1">
+                        <li><a href="../Home"> Inicio </a></li>
+                        <li>
+                            Grupos
+                            <ul>
+                                <li>@Html.ActionLink("Crear Nuevo Grupo", "NuevoGrupo", "Group")</li>
+                                <li>@Html.ActionLink("Ver Grupos", "VerGrupos", "Group")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Asociados
+                            <ul>
+                                <li>@Html.ActionLink("Registrar Nuevo Asociado", "NuevoSocio", "Socio")</li>
+                                <li>@Html.ActionLink("Ver Asociados", "VerSocios", "Socio")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Planes
+                            <ul>
+                                <li>@Html.ActionLink("Crear Nuevo Plan", "NuevoPlan", "Plan")</li>
+                                <li>@Html.ActionLink("Ver Planes", "VerPlanes", "Plan")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Ahorro
+                            <ul>
+                                <li>@Html.ActionLink("Registrar aporte a Ahorro", "NuevoAhorro", "Ahorro")</li>
+                                <li>@Html.ActionLink("Ver Ahorros", "VerAhorros", "Ahorro")</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Reportes
+                            <ul>
+                                <li>@Html.ActionLink("Estados de Cuenta por Grupo", "EstadoCuentaGrupo", "Home")</li>
+                                <li>@Html.ActionLink("Estados de Cuenta por Asociado", "EstadoCuentaSocio", "Home")</li>
+                            </ul>
+                        </li>
+                    </ul>
 
-            <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
-                <ul id="Menu1">
-                    <li><a href="../Home"> Inicio </a></li>
-                    <li>
-                        Grupos
-                        <ul>
-                            <li>@Html.ActionLink("Crear Nuevo Grupo", "NuevoGrupo", "Group")</li>
-                            <li>@Html.ActionLink("Ver Grupos", "VerGrupos", "Group")</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Asociados
-                        <ul>
-                            <li>@Html.ActionLink("Registrar Nuevo Asociado", "NuevoSocio", "Socio")</li>
-                            <li>@Html.ActionLink("Ver Asociados", "VerSocios", "Socio")</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Planes
-                        <ul>
-                            <li>@Html.ActionLink("Crear Nuevo Plan", "NuevoPlan", "Plan")</li>
-                            <li>@Html.ActionLink("Ver Planes", "VerPlanes", "Plan")</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Ahorro
-                        <ul>
-                            <li>@Html.ActionLink("Registrar aporte a Ahorro", "NuevoAhorro", "Ahorro")</li>
-                            <li>@Html.ActionLink("Ver Ahorros", "VerAhorros", "Ahorro")</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Reportes
-                        <ul>
-                            <li>@Html.ActionLink("Estados de Cuenta por Grupo", "EstadoCuentaGrupo", "Home")</li>
-                            <li>@Html.ActionLink("Estados de Cuenta por Asociado", "EstadoCuentaSocio", "Home")</li>
-                        </ul>
-                    </li>
-                </ul>
+                </div>
 
             </div>
+        </div>
+        <div class="container body-content">
+            <br /><br />
+
+            @RenderBody()
+            <hr />
+
+
 
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <p class="lead">
-            @if (@HttpContext.Current.Session["SessionIniciada"] != null)
-            {
-                <font size=6 color='##008000'>Sesión de usuario iniciada: @HttpContext.Current.Session["SessionIniciada"].ToString()</font>
-            }
-            else
-            {
-                <font size=6 color='#FF0000'>No puede acceder a la aplicación si no a iniciado sesión</font>
-            }
-        </p>
         <footer id="footer">
-            <p>&copy; @DateTime.Now.Year - Saving Manager</p>
+            <p>Savings Manager &copy; - @DateTime.Now.Year</p>
         </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/kendo")
-    @Scripts.Render("~/bundles/savings")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/kendo")
+        @Scripts.Render("~/bundles/savings")
+        @RenderSection("scripts", required: false)
+    </body>
+  
 </html>
