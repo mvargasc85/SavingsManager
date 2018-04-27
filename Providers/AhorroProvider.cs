@@ -33,7 +33,10 @@ namespace SavingsManager.Providers
 
         public IEnumerable<object> GetAllObjects()
         {
-            var ahorros = (IEnumerable<Ahorro>)SavingsDataRepository.GetAllAhorros().ToList();
+            var ahorros = SavingsDataRepository.GetAllAhorros();
+            if (ahorros == null) return null;
+
+            ahorros = (IEnumerable<Ahorro>)ahorros.ToList();
 
             var ahorroDtoModelList = new List<AhorroDtoModel>();
 

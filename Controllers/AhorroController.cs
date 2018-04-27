@@ -50,7 +50,7 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
@@ -62,10 +62,12 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
+                if (TempData["SavingsAction"] != null)
+                    ViewBag.SavingsAction = TempData["SavingsAction"].ToString();
                 return View();
             }
         }
@@ -76,10 +78,14 @@ namespace SavingsManager.Controllers
             {
 
                 _ahorroProvider.AddObject(ahorroModel);
+                //creation ok
+                TempData["SavingsAction"] = "SOk";
                 return RedirectToAction("VerAhorros");
             }
             catch 
             {
+                //creation failed
+                TempData["SavingsAction"] = "SF";
                 return RedirectToAction("VerAhorros");
             }
         }
@@ -89,11 +95,15 @@ namespace SavingsManager.Controllers
             try
             {
                 _ahorroProvider.UpdateObject(ahorro);
+                //update ok
+                TempData["SavingsAction"] = "UOk";
                 return RedirectToAction("VerAhorros");
 
             }
             catch
             {
+                //update failed
+                TempData["SavingsAction"] = "SOk";
                 return RedirectToAction("VerAhorros");
             }
         }
@@ -106,11 +116,22 @@ namespace SavingsManager.Controllers
         {
             var ahorros = _ahorroProvider.GetAllObjects() as IEnumerable<AhorroDtoModel>;
             return JsonConvert.SerializeObject(ahorros);
-        }    
+        }
         public void EliminarAhorro(int idpago)
         {
-            var ahorro = _ahorroProvider.GetObjectById(idpago);
-            _ahorroProvider.DeleteObject(ahorro);
+            try
+            {
+                var ahorro = _ahorroProvider.GetObjectById(idpago);
+                _ahorroProvider.DeleteObject(ahorro);
+                //delete ok
+                TempData["SavingsAction"] = "DOk";
+            }
+            catch
+            {
+                //delete failed
+                TempData["SavingsAction"] = "DF";
+                RedirectToAction("VerAhorros");
+            }
         }
         public AhorroDtoModel GetAhorroDtoById(int idpago)
         {

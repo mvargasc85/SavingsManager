@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        @Html.Hidden("savingsAction", (string)ViewBag.SavingsAction)
 
         <div class="navbar navbar-inverse navbar-fixed-top">
 
@@ -74,6 +75,8 @@
 
             </div>
         </div>
+        
+        <div id="notificationDiv" style="display:none"></div>
         <div class="container body-content">
             <br /><br />
 
@@ -83,7 +86,9 @@
 
 
         </div>
-        <footer id="footer">
+      
+
+         <footer id="footer">
             <p>Savings Manager &copy; - @DateTime.Now.Year</p>
         </footer>
 

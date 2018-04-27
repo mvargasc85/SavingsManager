@@ -48,7 +48,7 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
@@ -60,10 +60,12 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
+                if (TempData["SavingsAction"] != null)
+                    ViewBag.SavingsAction = TempData["SavingsAction"].ToString();
                 return View();
             }
         }
@@ -74,10 +76,14 @@ namespace SavingsManager.Controllers
             {
 
                 _planProvider.AddObject(planModel);
+                //creation ok
+                TempData["SavingsAction"] = "SOk";
                 return RedirectToAction("VerPlanes");
             }
             catch 
             {
+                //creation failed
+                TempData["SavingsAction"] = "SF";
                 return RedirectToAction("VerPlanes");
             }
         }
@@ -87,11 +93,15 @@ namespace SavingsManager.Controllers
             try
             {
                 _planProvider.UpdateObject(plan);
+                //updated ok
+                TempData["SavingsAction"] = "UOk";
                 return RedirectToAction("VerPlanes");
 
             }
             catch
             {
+                //uodate failed
+                TempData["SavingsAction"] = "UF";
                 return RedirectToAction("VerPlanes");
             }
         }
@@ -104,11 +114,23 @@ namespace SavingsManager.Controllers
         {
             var planes = _planProvider.GetAllObjects() as IEnumerable<PlanDtoModel>;
             return JsonConvert.SerializeObject(planes);
-        }    
+        }
         public void EliminarPlan(int idPlan)
         {
-            var plan = _planProvider.GetObjectById(idPlan);
-            _planProvider.DeleteObject(plan);
+            try
+            {
+                var plan = _planProvider.GetObjectById(idPlan);
+                //delete ok
+                TempData["SavingsAction"] = "DOk";
+                _planProvider.DeleteObject(plan);
+            }
+            catch
+            {
+                //delete failed
+                TempData["SavingsAction"] = "DF";
+                RedirectToAction("VerPlanes");
+
+            }
         }
         public PlanDtoModel GetPlanDtoById(int idPlan)
         {

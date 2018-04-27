@@ -1,5 +1,14 @@
-﻿
-$(document).ready(function () {});
+﻿var savingsObservable = null;
+$(document).ready(function () {
+
+    savingsObservable = GetSavingsObserver();
+
+    if ($("#savingsAction") && $("#savingsAction").val() != undefined && $("#savingsAction").val() != '') {
+        var SavingsAction = $("#savingsAction").val();
+        savingsObservable.fire('Grupo', SavingsAction);
+    }
+
+});
 
 //groups methods
 var saveGroup = function () {
@@ -10,8 +19,10 @@ var saveGroup = function () {
         url: "/Group/CrearGrupo",
         data: groupModel,
         success: function (result) {
+           
             var url = "/Group/VerGrupos";
             window.location.href = url;
+            
         },
         error: function (e) { display(e); }
     });
@@ -81,10 +92,10 @@ function createGroupsGrid(divId, items) {
         sortable: true,
         filterable: true,
         columns: [
-            { field: "IdGrupo", title: "Id", width: "30px" },
-            { field: "Nombre", title: "Nombre", width: "50px" },
-            { field: "Descripcion", title: "Descripcion", width: "50px" },
-            { field: "FechaCreacion", title: "Fecha de Creación", width: "50px", format: "{0: dd/MM/yyyy}" },
+            { field: "IdGrupo", title: "Id", width: "10px" },
+            { field: "Nombre", title: "Nombre" },
+            { field: "Descripcion", title: "Descripcion" },
+            { field: "FechaCreacion", title: "Fecha de Creación", width: "30px", format: "{0: dd/MM/yyyy}" },
             {
                 template: '<a href="javascript:void(0)" class="k-grid-edit" onclick="EditGroup(${IdGrupo})">Editar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;' +
                     '<a href="javascript:void(0)" class="k-grid-delete" onclick="ConfirmDeleteGroup(${IdGrupo})">Eliminar</a>',

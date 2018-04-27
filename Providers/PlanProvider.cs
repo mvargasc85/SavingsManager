@@ -36,7 +36,10 @@ namespace SavingsManager.Providers
 
         public IEnumerable<object> GetAllObjects()
         {
-            var planes = (IEnumerable<Plan>)SavingsDataRepository.GetAllPlanes().ToList();
+            var planes = SavingsDataRepository.GetAllPlanes();
+            if (planes == null) return null;
+
+            planes = (IEnumerable<Plan>)planes.ToList();
 
             var planDtoModelList = new List<PlanDtoModel>();
 

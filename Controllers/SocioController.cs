@@ -48,7 +48,7 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
@@ -60,10 +60,12 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
+                if (TempData["SavingsAction"] != null)
+                    ViewBag.SavingsAction = TempData["SavingsAction"].ToString();
                 return View();
             }
         }
@@ -74,10 +76,14 @@ namespace SavingsManager.Controllers
             {
 
                 _socioProvider.AddObject(socioModel);
+                //creation ok
+                TempData["SavingsAction"] = "SOk";
                 return RedirectToAction("VerSocios");
             }
             catch 
             {
+                //creation ok
+                TempData["SavingsAction"] = "SF";
                 return RedirectToAction("VerSocios");
             }
         }
@@ -87,11 +93,15 @@ namespace SavingsManager.Controllers
             try
             {
                 _socioProvider.UpdateObject(socio);
+                //Update ok
+                TempData["SavingsAction"] = "UOk";
                 return RedirectToAction("VerSocios");
 
             }
             catch
             {
+                //udate failed
+                TempData["SavingsAction"] = "UF";
                 return RedirectToAction("VerSocios");
             }
         }
@@ -104,11 +114,22 @@ namespace SavingsManager.Controllers
         {
             var socios = _socioProvider.GetAllObjects() as IEnumerable<SocioDtoModel>;
             return JsonConvert.SerializeObject(socios);
-        }    
+        }
         public void EliminarSocio(int idSocio)
         {
-            var socio = _socioProvider.GetObjectById(idSocio);
-            _socioProvider.DeleteObject(socio);
+            try
+            {
+                var socio = _socioProvider.GetObjectById(idSocio);
+                //delete ok
+                TempData["SavingsAction"] = "DOk";
+                _socioProvider.DeleteObject(socio);
+            }
+            catch
+            {
+                //delete failed
+                TempData["SavingsAction"] = "UF";
+                RedirectToAction("VerSocios");
+            }
         }
         public SocioDtoModel GetSocioDtoById(int idSocio)
         {

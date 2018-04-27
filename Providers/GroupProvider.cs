@@ -34,7 +34,11 @@ namespace SavingsManager.Providers
 
         public IEnumerable<object> GetAllObjects()
         {
-            var groups = (IEnumerable<Grupo>) SavingsDataRepository.GetAllGroups().ToList();
+
+            var groups = SavingsDataRepository.GetAllGroups();
+            if (groups == null) return null;
+
+            groups = (IEnumerable<Grupo>)groups.ToList();            
 
             var groupDtoModelList = new List<GroupDtoModel>();
 

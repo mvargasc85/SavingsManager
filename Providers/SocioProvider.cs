@@ -33,7 +33,10 @@ namespace SavingsManager.Providers
 
         public IEnumerable<object> GetAllObjects()
         {
-            var socios = (IEnumerable<Socio>)SavingsDataRepository.GetAllSocios().ToList();
+            var socios = SavingsDataRepository.GetAllSocios();
+            if (socios == null) return null;
+
+            socios = (IEnumerable<Socio>)socios.ToList();
 
             var socioDtoModelList = new List<SocioDtoModel>();
 

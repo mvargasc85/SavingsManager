@@ -26,7 +26,7 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
@@ -41,10 +41,14 @@ namespace SavingsManager.Controllers
             {
 
                 _groupProvider.AddObject(groupModel);
+                //creation ok
+                TempData["SavingsAction"] = "SOk";
                 return RedirectToAction("VerGrupos");
             }
             catch
             {
+                //creation failed
+                TempData["SavingsAction"] = "SF";
                 return RedirectToAction("VerGrupos");
             }
         }
@@ -55,10 +59,12 @@ namespace SavingsManager.Controllers
             AccountController account = new AccountController();
             if (Session["SessionIniciada"] == null)
             {
-                return RedirectToAction("Index", "Home");
+                 return RedirectToAction("Login", "Account");
             }
             else
             {
+                if (TempData["SavingsAction"] != null)
+                    ViewBag.SavingsAction = TempData["SavingsAction"].ToString();
                 return View();
             }
         }
@@ -104,19 +110,34 @@ namespace SavingsManager.Controllers
             try
             {
                 _groupProvider.UpdateObject(grupo);
+                //updated ok
+                TempData["SavingsAction"] = "UOk";
                 return RedirectToAction("VerGrupos");
 
             }
             catch
             {
+                //update failed
+                TempData["SavingsAction"] = "UF";
                 return RedirectToAction("VerGrupos");
             }
         }
 
         public void EliminarGrupo(int idGrupo)
         {
-            var group = _groupProvider.GetObjectById(idGrupo);
-            _groupProvider.DeleteObject(group);
+            try
+            {
+                var group = _groupProvider.GetObjectById(idGrupo);
+                _groupProvider.DeleteObject(group);
+                //delete ok
+                TempData["SavingsAction"] = "DOk";
+            }
+            catch
+            {
+                //delete failed
+                TempData["SavingsAction"] = "DF";
+                RedirectToAction("VerGrupos");
+            }
         }
 
 

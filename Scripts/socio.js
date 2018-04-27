@@ -1,7 +1,14 @@
-﻿$(document).ready(function () {
- 
-});
+﻿var savingsObservable = null;
+$(document).ready(function () {
 
+    savingsObservable = GetSavingsObserver();
+
+    if ($("#savingsAction") && $("#savingsAction").val() != undefined && $("#savingsAction").val() != '') {
+        var SavingsAction = $("#savingsAction").val();
+        savingsObservable.fire('Socio', SavingsAction);
+    }
+
+});
 
 
 function saveSocio() {
@@ -158,7 +165,6 @@ function deleteSocio(idSocio) {
 function display(e) { alert(e); }
 
 function getSocioDropDownList() {
-    debugger;
     var socioId = $("#socioDropDown").val();
     $.ajax({
         url: "/Socio/GetSocios",

@@ -1,13 +1,14 @@
-﻿$(document).ready(function () {
-   
-    //$("#AddPlanBtn").on("click", savePlan);
-    //$("#cancelAddingPlanBtn").on("click", cancelAddingPlan);
-    //getAllPlanes();
-    //getGroupDropDownList();
+﻿var savingsObservable = null;
+$(document).ready(function () {
 
-   
+    savingsObservable = GetSavingsObserver();
+
+    if ($("#savingsAction") && $("#savingsAction").val() != undefined && $("#savingsAction").val() != '') {
+        var SavingsAction = $("#savingsAction").val();
+        savingsObservable.fire('Plan', SavingsAction);
+    }
+
 });
-
 
 
 function savePlan() {
@@ -158,7 +159,6 @@ function deletePlan(idPlan) {
 function display(e) { alert(e); }
 
 function getPlanDropDownList() {
-    debugger;
     var socioId = $("#planDropDown").val();
     $.ajax({
         url: "/Plan/GetPlanes",
