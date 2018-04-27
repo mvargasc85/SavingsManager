@@ -312,11 +312,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\vendors\jquery-ui.js" />
-    <Content Include="Scripts\vendors\ai.0.22.9-build00167.js" />
-    <Content Include="Scripts\vendors\ai.0.22.9-build00167.min.js" />
-    <Content Include="Scripts\vendors\bootstrap.js" />
-    <Content Include="Scripts\vendors\bootstrap.min.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -325,29 +324,29 @@
       <LastGenOutput>SavingMgrDb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Scripts\vendors\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\editGroup.js" />
-    <None Include="Scripts\vendors\jquery-1.10.2-vsdoc.js" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\editPlan.js" />
     <Content Include="Scripts\editAhorro.js" />
     <Content Include="Scripts\editSocio.js" />
     <Content Include="Scripts\grupo.js" />
-    <Content Include="Scripts\vendors\jquery-1.10.2.js" />
-    <Content Include="Scripts\vendors\jquery-1.10.2.min.js" />
-    <None Include="Scripts\vendors\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\vendors\jquery.validate.js" />
-    <Content Include="Scripts\vendors\jquery.validate.min.js" />
-    <Content Include="Scripts\vendors\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\vendors\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kendoui\kendo.web.min.js" />
-    <Content Include="Scripts\vendors\modernizr-2.6.2.js" />
-    <Content Include="Scripts\vendors\respond.js" />
-    <Content Include="Scripts\vendors\respond.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\savings.js" />
     <Content Include="Scripts\plan.js" />
     <Content Include="Scripts\ahorro.js" />
     <Content Include="Scripts\socio.js" />
-    <Content Include="Scripts\vendors\_references.js" />
+    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -407,7 +406,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\vendors\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

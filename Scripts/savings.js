@@ -120,10 +120,10 @@ var notifyError = function (sender, msg) {
 
 
 GetSavingsObserver = function () {
-    if (savingsObservable == null || savingsObservable == undefined) {
+    //if (savingsObservable == null || savingsObservable == undefined) {
         savingsObservable = new SavingsObservable();
         savingsObservable.subscribe(notifySuccess);
         savingsObservable.subscribe(notifyError);
-    }
+    //}
     return savingsObservable;
 }
