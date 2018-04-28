@@ -8,6 +8,8 @@ $(document).ready(function () {
         savingsObservable.fire('Plan', SavingsAction);
     }
 
+    $("#datepicker1").kendoDatePicker();
+    $("#datepicker2").kendoDatePicker();
 });
 
 
@@ -28,6 +30,10 @@ function savePlan() {
 
 
 function getPlanModel() {
+
+    var dtpInicial = $("#datepicker1").data("kendoDatePicker");
+    var dtpFinal = $("#datepicker2").data("kendoDatePicker");
+
     var planModel =
         {
             IdPlan: null,
@@ -36,8 +42,8 @@ function getPlanModel() {
             Duracion: $("#planDuracionTxt").val(),
             Periodicidad: $("#planPeriodicidadTxt").val(),
             MontoCuota: $("#planMontoCuotaTxt").val(),
-            FechaInicial: $("#planFechaInicialTxt").val(),
-            FechaFinal: $("#planFechaFinalTxt").val(),
+            FechaInicial: dtpInicial.value(),
+            FechaFinal: dtpFinal.value()
         };
 
     return planModel;
@@ -51,6 +57,7 @@ function cancelAddingPlan() {
     $("#planMontoCuotaTxt").val("");
     $("#planFechaInicialTxt").val("");
     $("#planFechaFinalTxt").val("");
+
 }
 
 
@@ -179,6 +186,7 @@ Plan.prototype = {
     initializeBtns: function () {
         $("#AddPlanBtn").on("click", savePlan);
         $("#cancelAddingPlanBtn").on("click", cancelAddingPlan);
+     
     },
 
     loadPlansGrid: function () {

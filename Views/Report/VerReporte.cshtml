@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset style="width: 400px">
+    <legend>Reporte de Estado de Grupo</legend>
+    <br /><br />
+    <table id="groupInfoTbl">
+        <tr>
+            <td style="width: 200px;"><label>FechaInicial:</label></td>
+            <td style="width: 200px;"><input id="datepicker1" value="04/27/2018" title="datepicker" /></td>
+        </tr>
+        <tr>
+            <td style="width: 200px;"><label>FechaFinal:</label></td>
+            <td style="width: 200px;"><input id="datepicker2" value="04/27/2018" title="datepicker" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+</fieldset>
+<br /><br />
+<div id="bottonsDiv" style="width: 400px; margin-right: 5px">
+    <input id="AddReportBtn" class="k-button" value="Filtrar" />
+</div>
+
+<br /><br />
+
+<div id="EstadoGrupoDiv">
+    <div id="EstadoGrupoGrid"></div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/reportes")

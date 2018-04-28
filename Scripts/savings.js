@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 function display(e) { alert(e); }
 
-
+//implements facade pattern
 var SavingsFacade = function () {
     if (typeof Group != undefined)
         this.group = new Group();
@@ -87,11 +87,11 @@ SavingsObservable.prototype = {
 var notifySuccess = function (sender, msg) {
     var text = '';
     if (msg == 'SOk')
-        text = sender + ' creado exitosamente';
+        text = 'Creado exitosamente';
     else if (msg == 'UOk')
-        text = sender + ' actualizado exitosamente';
+        text = 'Actualizado exitosamente';
     else if (msg == 'DOk')
-        text = sender + ' elimando exitosamente';
+        text = 'Eliminado exitosamente';
     else
         return;
 
@@ -104,11 +104,11 @@ var notifySuccess = function (sender, msg) {
 var notifyError = function (sender, msg) {
     var text = '';
     if (msg == 'SF')
-        text = 'Ha ocurrido un error al crear el ' + sender;
+        text = 'Ha ocurrido un error al crear el objeto';
     else if (msg == 'UF')
-        text = 'Ha ocurrido un error al actualizar el ' + sender;
+        text = 'Ha ocurrido un error al actualizar';
     else if (msg == 'DF')
-        text = 'Ha ocurrido un error al eliminar el ' + sender;
+        text = 'Ha ocurrido un error al eliminar';
     else
         return;
 
@@ -120,10 +120,9 @@ var notifyError = function (sender, msg) {
 
 
 GetSavingsObserver = function () {
-    //if (savingsObservable == null || savingsObservable == undefined) {
-        savingsObservable = new SavingsObservable();
-        savingsObservable.subscribe(notifySuccess);
-        savingsObservable.subscribe(notifyError);
-    //}
+    savingsObservable = new SavingsObservable();
+    savingsObservable.subscribe(notifySuccess);
+    savingsObservable.subscribe(notifyError);
+
     return savingsObservable;
 }

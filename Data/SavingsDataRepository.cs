@@ -19,7 +19,8 @@ namespace SavingsManager.Data
 
         public Grupo GetGroupById(int id)
         {
-            var group = _savingsDataContext.Grupo.SingleOrDefault(g => g.IdGrupo == id);
+          
+            var group =  _savingsDataContext.Grupo.SingleOrDefault(g => g.IdGrupo == id);
             return group;
         }
 

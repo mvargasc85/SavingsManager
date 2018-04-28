@@ -71,6 +71,12 @@ namespace SavingsManager.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (Session["SessionIniciada"] != null)
+            {
+                Session["SessionIniciada"] = null;
+            }
+
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

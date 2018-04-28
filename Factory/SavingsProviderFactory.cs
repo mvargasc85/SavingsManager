@@ -12,7 +12,7 @@ namespace SavingsManager.Factory
     {
 
         private static SavingsProviderFactory instance;
-        SavingsDataRepository savingsDataRepository = new SavingsDataRepository();
+        SavingsDataRepository savingsDataRepository;
         private SavingsProviderFactory()
         {
             savingsDataRepository = new SavingsDataRepository();
@@ -44,6 +44,7 @@ namespace SavingsManager.Factory
         /// <returns>a IsavingsProvider object according to the type passed by parameter</returns>
         public ISavingsProvider CreateSavingsModelObject(string type)
         {
+            savingsDataRepository =   new SavingsDataRepository();
             switch (type)
             {
                 case "Grupo":

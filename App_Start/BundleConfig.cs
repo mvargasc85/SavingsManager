@@ -35,8 +35,7 @@ namespace SavingsManager
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                     "~/Scripts/Kendoui/kendo.web.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/savings").Include(
-            
+            bundles.Add(new ScriptBundle("~/bundles/savings").Include(            
             "~/Scripts/grupo.js",
             "~/Scripts/socio.js", 
             "~/Scripts/plan.js",
@@ -44,6 +43,9 @@ namespace SavingsManager
             "~/Scripts/savings.js"
             
             ));
+
+            bundles.Add(new ScriptBundle("~/bundles/reportes").Include(
+               "~/Scripts/reporteGrupo.js"));
         }
     }
 }

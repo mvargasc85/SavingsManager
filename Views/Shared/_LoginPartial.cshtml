@@ -18,17 +18,14 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
 
-        @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
-        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        @if (@HttpContext.Current.Session["SessionIniciada"] != null)
+        {
+            <li>@Html.ActionLink("Cerrar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        }
+
     </ul>
 }
-
-
-@*@if (@HttpContext.Current.Session["SessionIniciada"] != null)
-{
-    <font size=2 color='##008000'>Sesión de usuario iniciada: @HttpContext.Current.Session["SessionIniciada"].ToString()</font>
-}
-else
-{
-    <font size=2 color='#FF0000'>No puede acceder a la aplicación si no a iniciado sesión</font>
-}*@
